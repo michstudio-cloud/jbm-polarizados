@@ -8,6 +8,7 @@ import LegalityWarranty from './components/LegalityWarranty';
 import Pricing from './components/Pricing';
 import Process from './components/Process';
 import Brands from './components/Brands';
+import Gallery from './components/Gallery';
 import Location from './components/Location';
 import Footer from './components/Footer';
 
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Pricing />
         <Process />
         <Brands />
+        <Gallery />
         <Location />
       </main>
       <Footer />

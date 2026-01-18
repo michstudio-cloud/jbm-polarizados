@@ -1,10 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { WHATSAPP_LINK } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Check initial position
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Determine navbar classes based on state
+  // Transparent at top, Solid when scrolled OR when mobile menu is open
+  const navClasses = (isScrolled || isOpen)
+    ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-gray-200 dark:border-zinc-800 shadow-sm'
+    : 'bg-transparent border-b border-transparent';
 
   const navLinks = [
     { name: 'Beneficios', href: '#problema' },
@@ -16,7 +35,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-gray-200 dark:border-zinc-800 transition-colors duration-300">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${navClasses}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center gap-3">
@@ -68,7 +87,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white dark:bg-zinc-950 border-b border-gray-200 dark:border-zinc-800">
+        <div className="lg:hidden bg-white dark:bg-zinc-950 border-b border-gray-200 dark:border-zinc-800 shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <a

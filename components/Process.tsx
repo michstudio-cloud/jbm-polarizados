@@ -27,16 +27,27 @@ const Process: React.FC = () => {
              {/* Connector Line (Desktop) */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 dark:bg-zinc-800 -translate-y-1/2 z-0"></div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
-                {steps.map((step, idx) => (
-                    <div key={idx} className="flex flex-col items-center text-center group">
-                        <div className="w-16 h-16 bg-white dark:bg-zinc-800 border-2 border-orange-500 rounded-full flex items-center justify-center text-orange-600 mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <step.icon size={28} />
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 relative z-10">
+                {steps.map((step, idx) => {
+                    const isLast = idx === steps.length - 1;
+                    return (
+                        <div 
+                            key={idx} 
+                            className={`
+                                flex flex-col items-center text-center group transition-all duration-300
+                                ${isLast 
+                                    ? 'col-span-2 md:col-span-1 bg-white dark:bg-zinc-950 rounded-2xl p-6 border border-orange-200 dark:border-zinc-800 shadow-lg md:shadow-none md:bg-transparent md:dark:bg-transparent md:p-0 md:border-0' 
+                                    : ''}
+                            `}
+                        >
+                            <div className="w-16 h-16 bg-white dark:bg-zinc-800 border-2 border-orange-500 rounded-full flex items-center justify-center text-orange-600 mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                <step.icon size={28} />
+                            </div>
+                            <h3 className="font-bold text-gray-900 dark:text-white mb-1">{step.title}</h3>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">{step.desc}</p>
                         </div>
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-1">{step.title}</h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{step.desc}</p>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
 

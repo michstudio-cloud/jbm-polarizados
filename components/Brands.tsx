@@ -32,11 +32,21 @@ const Brands: React.FC = () => {
                 Utilizamos únicamente productos reconocidos por su desempeño y durabilidad.
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-                    {BRANDS_FILM.map((brand, idx) => (
-                    <div key={idx} className="bg-zinc-900 dark:bg-zinc-800 text-white px-6 py-3 rounded-lg font-bold tracking-wider">
-                        {brand.name}
-                    </div>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-8">
+                {BRANDS_FILM.map((brand, idx) => (
+                    brand.logo ? (
+                        <div key={idx} className="h-16 w-32 md:h-24 md:w-48 flex items-center justify-center p-2 transition-transform hover:scale-110 duration-300">
+                            <img 
+                                src={brand.logo} 
+                                alt={brand.name} 
+                                className="max-h-full max-w-full object-contain"
+                            />
+                        </div>
+                    ) : (
+                        <div key={idx} className="bg-zinc-900 dark:bg-zinc-800 text-white px-6 py-3 rounded-lg font-bold tracking-wider">
+                            {brand.name}
+                        </div>
+                    )
                 ))}
             </div>
             

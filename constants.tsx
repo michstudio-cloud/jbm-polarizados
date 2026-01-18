@@ -77,7 +77,7 @@ export const BRANDS_AUTO: Brand[] = [
 ];
 
 export const BRANDS_FILM: Brand[] = [
-  { name: "Solex" },
-  { name: "XPEL" },
-  { name: "3M" }
+  { name: "XPEL", logo: "https://polarizados.site/wp-content/uploads/2026/01/xpel-486x125-1920w.webp" },
+  { name: "3M", logo: "https://polarizados.site/wp-content/uploads/2026/01/3M_wordmark.svg_.png" },
+  { name: "Solex", logo: "https://polarizados.site/wp-content/uploads/2026/01/LOGO-SOLEX-png.webp" }
 ];

@@ -25,4 +25,5 @@ export interface NavLink {
 
 export interface Brand {
   name: string;
+  logo?: string;
 }

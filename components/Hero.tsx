@@ -42,16 +42,16 @@ const Hero: React.FC = () => {
           </a>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm font-medium text-gray-700 dark:text-gray-400">
+        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-400 w-full">
           {[
             "Menor entrada de calor",
             "Polarizado Inteligente",
             "Instalación Profesional",
             "Garantía por escrito"
           ].map((item, index) => (
-            <div key={index} className="flex items-center justify-center gap-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-zinc-800">
-              <CheckCircle2 className="text-orange-500" size={18} />
-              {item}
+            <div key={index} className="flex flex-col sm:flex-row items-center justify-center gap-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm px-2 sm:px-4 py-3 sm:py-2 rounded-lg border border-gray-200 dark:border-zinc-800 text-center sm:text-left">
+              <CheckCircle2 className="text-orange-500 flex-shrink-0" size={18} />
+              <span>{item}</span>
             </div>
           ))}
         </div>

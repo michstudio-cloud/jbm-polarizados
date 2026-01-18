@@ -11,9 +11,9 @@ import {
 } from 'lucide-react';
 import { Feature, PricingPlan, Brand } from './types';
 
-export const WHATSAPP_LINK = "https://wa.me/521234567890?text=Hola,%20quisiera%20cotizar%20un%20polarizado%20para%20mi%20auto";
+export const WHATSAPP_LINK = "https://wa.me/528992557561?text=Hola,%20quisiera%20cotizar%20un%20polarizado%20para%20mi%20auto";
 
-export const WHATSAPP_BUSINESS_LINK = "https://wa.me/521234567890?text=Hola,%20me%20interesa%20cotizar%20polarizado%20para%20un%20negocio%20o%20empresa";
+export const WHATSAPP_BUSINESS_LINK = "https://wa.me/528992557561?text=Hola,%20me%20interesa%20cotizar%20polarizado%20para%20un%20negocio%20o%20empresa";
 
 export const FEATURES_PROBLEM: Feature[] = [
   {

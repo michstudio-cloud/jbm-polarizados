@@ -12,6 +12,7 @@ import Business from './components/Business';
 import Gallery from './components/Gallery';
 import Location from './components/Location';
 import Footer from './components/Footer';
+import { WHATSAPP_LINK } from './constants';
 
 const App: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ const App: React.FC = () => {
       {/* Floating Action Button for Mobile */}
       <div className="fixed bottom-6 right-6 z-40 md:hidden">
          <a 
-            href="https://wa.me/521234567890" 
+            href={WHATSAPP_LINK} 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center w-14 h-14 bg-green-500 rounded-full shadow-lg shadow-green-900/30 text-white"

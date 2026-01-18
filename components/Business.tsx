@@ -20,7 +20,7 @@ const Business: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-800">
+    <section className="pt-32 pb-10 bg-white dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column: Content */}

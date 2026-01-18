@@ -1,0 +1,58 @@
+import React from 'react';
+import { MessageCircle, Search, ThumbsUp, CalendarClock, Hammer } from 'lucide-react';
+import { WHATSAPP_LINK } from '../constants';
+
+const Process: React.FC = () => {
+  const steps = [
+    { icon: MessageCircle, title: "1. Escribes", desc: "Nos contactas por WhatsApp." },
+    { icon: Search, title: "2. Revisamos", desc: "Analizamos tu vehículo y uso." },
+    { icon: ThumbsUp, title: "3. Recomendamos", desc: "Elegimos el material ideal." },
+    { icon: CalendarClock, title: "4. Agendamos", desc: "Fijamos día y hora." },
+    { icon: Hammer, title: "5. Instalamos", desc: "Trabajo profesional y limpio." },
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50 dark:bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+            <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-4">
+                Proceso simple y claro
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+                Sin improvisaciones. Sin promesas falsas.
+            </p>
+        </div>
+
+        <div className="relative">
+             {/* Connector Line (Desktop) */}
+            <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 dark:bg-zinc-800 -translate-y-1/2 z-0"></div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
+                {steps.map((step, idx) => (
+                    <div key={idx} className="flex flex-col items-center text-center group">
+                        <div className="w-16 h-16 bg-white dark:bg-zinc-800 border-2 border-orange-500 rounded-full flex items-center justify-center text-orange-600 mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <step.icon size={28} />
+                        </div>
+                        <h3 className="font-bold text-gray-900 dark:text-white mb-1">{step.title}</h3>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{step.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div className="mt-12 text-center">
+             <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
+            >
+                Agendar ahora
+            </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Process;

@@ -5,12 +5,12 @@ import { WHATSAPP_LINK } from '../constants';
 const Hero: React.FC = () => {
   return (
     <div className="relative pt-16 pb-12 sm:pt-24 lg:pb-32 overflow-hidden">
-      {/* Background Image Placeholder using Picsum */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://picsum.photos/1920/1080?grayscale&blur=2" 
-          alt="Background Texture" 
-          className="w-full h-full object-cover opacity-20 dark:opacity-10"
+          src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53-1.jpeg" 
+          alt="JBM Tecnología Solar - Polarizado Reynosa" 
+          className="w-full h-full object-cover opacity-20 dark:opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-zinc-950/80 dark:to-zinc-950"></div>
       </div>

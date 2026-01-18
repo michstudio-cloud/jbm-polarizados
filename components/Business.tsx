@@ -73,10 +73,10 @@ const Business: React.FC = () => {
 
             {/* Right Column: Visual */}
             <div className="relative">
-                 {/* Abstract representation of a building with window tint */}
+                 {/* Updated building image */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-zinc-800 aspect-[4/5] lg:aspect-square">
                     <img 
-                        src="https://picsum.photos/seed/office/800/800" 
+                        src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-18-at-19.35.15.jpeg" 
                         alt="Edificio corporativo con polarizado" 
                         className="w-full h-full object-cover"
                     />

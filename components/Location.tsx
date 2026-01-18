@@ -15,8 +15,15 @@ const Location: React.FC = () => {
                     <MapPin className="text-orange-500 mt-1" size={24} />
                     <div>
                         <h4 className="font-bold text-lg">Ubicación</h4>
-                        <p className="text-gray-400">Fracc. San Pedro, Reynosa, Tamaulipas.</p>
-                        <a href="#" className="text-orange-500 text-sm hover:underline mt-1 inline-block">Ver en Google Maps</a>
+                        <p className="text-gray-400">Eje San Pedro 462, Sin Nombre de Col 18, 88754 Reynosa, Tamps., Mexico</p>
+                        <a 
+                            href="https://maps.app.goo.gl/fEXVitcrRdE8kX7P7" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-orange-500 text-sm hover:underline mt-1 inline-block"
+                        >
+                            Ver en Google Maps
+                        </a>
                     </div>
                 </div>
 
@@ -45,11 +52,11 @@ const Location: React.FC = () => {
           </div>
 
           <div className="h-96 bg-zinc-800 rounded-2xl overflow-hidden relative">
-            {/* Placeholder for map */}
+            {/* Provided shop work image */}
             <img 
-                src="https://picsum.photos/800/600?grayscale" 
-                alt="Mapa Ubicación" 
-                className="w-full h-full object-cover opacity-50"
+                src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.49.jpg" 
+                alt="Taller de Polarizado JBM" 
+                className="w-full h-full object-cover opacity-70"
             />
             <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800 text-center">

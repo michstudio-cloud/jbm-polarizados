@@ -19,13 +19,12 @@ const Navbar: React.FC = () => {
     <nav className="fixed w-full z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-gray-200 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <span className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
-              JBM
-            </span>
-            <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 hidden sm:block">
-              Tecnología Solar
-            </span>
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <img 
+              src="https://polarizados.site/wp-content/uploads/2026/01/jbm-logo.svg" 
+              alt="JBM Tecnología Solar" 
+              className="h-8 md:h-10 w-auto"
+            />
           </div>
           
           <div className="hidden lg:block">

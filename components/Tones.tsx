@@ -25,8 +25,8 @@ const Tones: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {tones.map((tone, idx) => (
             <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-800 bg-gray-100 dark:bg-zinc-900">
-               {/* Simulation of tint darkness */}
-              <div className="h-48 relative bg-cover bg-center" style={{ backgroundImage: 'url(https://picsum.photos/600/400?car)' }}>
+               {/* Use the tint meter photo for simulation context */}
+              <div className="h-48 relative bg-cover bg-center" style={{ backgroundImage: 'url(https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg)' }}>
                   <div className={`absolute inset-0 bg-black ${tone.opacity} transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center`}>
                      <span className="text-4xl font-black text-white border-4 border-white p-4 rounded-full">{tone.pct}</span>
                   </div>

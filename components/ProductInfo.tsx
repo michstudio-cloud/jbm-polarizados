@@ -10,7 +10,15 @@ const ProductInfo: React.FC = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl opacity-20 blur-2xl"></div>
             <div className="relative bg-white dark:bg-zinc-950 rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-zinc-800">
-                {/* Visual Representation of Tint Layers */}
+               {/* High Quality Product Image */}
+               <div className="h-48 overflow-hidden">
+                  <img 
+                    src="https://polarizados.site/wp-content/uploads/2026/01/2023-Tesla-Model-Y-Grey-Black-HTX-XRP-WC-19-png.jpg" 
+                    alt="Tesla con polarizado de alta calidad"
+                    className="w-full h-full object-cover"
+                  />
+               </div>
+               
                <div className="p-8">
                   <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 bg-orange-100 dark:bg-orange-900/20 rounded-lg text-orange-600">

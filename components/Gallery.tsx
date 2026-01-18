@@ -1,15 +1,15 @@
 import React from 'react';
-import { Camera, Instagram } from 'lucide-react';
+import { Camera, Facebook, ExternalLink } from 'lucide-react';
 
 const Gallery: React.FC = () => {
-  // Using specific IDs or random seeds to get consistent "car-like" or texture images
+  // Updated with new image list provided
   const images = [
-    "https://picsum.photos/seed/car1/600/400",
-    "https://picsum.photos/seed/car2/600/400",
-    "https://picsum.photos/seed/car3/600/400",
-    "https://picsum.photos/seed/car4/600/400",
-    "https://picsum.photos/seed/car5/600/400",
-    "https://picsum.photos/seed/car6/600/400"
+    "https://polarizados.site/wp-content/uploads/2026/01/63d6cd8e3c6309595240d4495839b42f.jpg", // Instalación profesional
+    "https://polarizados.site/wp-content/uploads/2026/01/549977215_1391718112955780_8342074345367458224_n-2.jpg", // Trabajo en SUV Changan
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.44-1.jpg", // Trabajo en SUV
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53.jpeg", // Polarizado inteligente
+    "https://polarizados.site/wp-content/uploads/2026/01/615810071_1494866745974249_1659294192991222039_n.jpg", // Camioneta caja
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.49-2.jpg" // Proceso de instalación
   ];
 
   return (
@@ -30,7 +30,13 @@ const Gallery: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {images.map((src, idx) => (
-                    <div key={idx} className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300">
+                    <a 
+                        key={idx} 
+                        href="https://www.facebook.com/solarcontrol20/photos"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 block"
+                    >
                         <img 
                             src={src} 
                             alt={`Instalación de polarizado ${idx + 1}`} 
@@ -38,19 +44,23 @@ const Gallery: React.FC = () => {
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale-[20%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                            <span className="text-white text-sm font-medium">Ver detalle</span>
+                            <span className="text-white text-sm font-bold flex items-center gap-2">
+                                Ver en Facebook <ExternalLink size={14}/>
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 ))}
             </div>
             
             <div className="mt-12 flex justify-center">
                 <a 
-                    href="#" 
-                    className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors font-medium"
+                    href="https://www.facebook.com/solarcontrol20/photos" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors font-bold text-lg"
                 >
-                    <Instagram size={20} />
-                    <span>Ver más trabajos en Instagram</span>
+                    <Facebook size={24} />
+                    <span>Ver galería completa en Facebook</span>
                 </a>
             </div>
         </div>

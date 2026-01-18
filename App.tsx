@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
@@ -12,24 +12,48 @@ import Business from './components/Business';
 import Gallery from './components/Gallery';
 import Location from './components/Location';
 import Footer from './components/Footer';
+import Terms from './components/Terms';
 import { WHATSAPP_LINK } from './constants';
 
 const App: React.FC = () => {
+  // Simple view state based on hash
+  const [isTermsPage, setIsTermsPage] = useState(false);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      // Check if hash is strictly '#/terminos'
+      setIsTermsPage(window.location.hash === '#/terminos');
+    };
+
+    // Check on mount
+    handleHashChange();
+
+    // Add listener
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 font-sans selection:bg-orange-500 selection:text-white">
       <Navbar />
       <main>
-        <Hero />
-        <ProblemSolution />
-        <ProductInfo />
-        <Tones />
-        <LegalityWarranty />
-        <Pricing />
-        <Process />
-        <Brands />
-        <Business />
-        <Gallery />
-        <Location />
+        {isTermsPage ? (
+          <Terms />
+        ) : (
+          <>
+            <Hero />
+            <ProblemSolution />
+            <ProductInfo />
+            <Tones />
+            <LegalityWarranty />
+            <Pricing />
+            <Process />
+            <Brands />
+            <Business />
+            <Gallery />
+            <Location />
+          </>
+        )}
       </main>
       <Footer />
       

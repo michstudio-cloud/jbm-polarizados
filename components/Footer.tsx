@@ -20,6 +20,7 @@ const Footer: React.FC = () => {
                 <a href="#" className="hover:text-orange-500 transition-colors">Inicio</a>
                 <a href="#precios" className="hover:text-orange-500 transition-colors">Precios</a>
                 <a href="#ubicacion" className="hover:text-orange-500 transition-colors">Ubicación</a>
+                <a href="#/terminos" className="hover:text-orange-500 transition-colors">Términos</a>
             </div>
         </div>
         

@@ -14,6 +14,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53-1.webp" 
           alt="JBM Tecnología Solar - Polarizado Reynosa" 
           className="w-full h-full object-cover opacity-20 dark:opacity-20"
+          fetchPriority="high"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-zinc-950/80 dark:to-zinc-950"></div>
       </div>

@@ -15,12 +15,14 @@ import Location from './components/Location';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import QuoteModal from './components/QuoteModal';
+import BusinessQuoteModal from './components/BusinessQuoteModal';
 import { WHATSAPP_LINK } from './constants';
 
 const App: React.FC = () => {
   // Simple view state based on hash
   const [isTermsPage, setIsTermsPage] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [isBusinessModalOpen, setIsBusinessModalOpen] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -38,6 +40,9 @@ const App: React.FC = () => {
 
   const openQuoteModal = () => setIsQuoteModalOpen(true);
   const closeQuoteModal = () => setIsQuoteModalOpen(false);
+
+  const openBusinessModal = () => setIsBusinessModalOpen(true);
+  const closeBusinessModal = () => setIsBusinessModalOpen(false);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 font-sans selection:bg-orange-500 selection:text-white">
@@ -57,7 +62,7 @@ const App: React.FC = () => {
             <Process onOpenModal={openQuoteModal} />
             <Pricing onOpenModal={openQuoteModal} />
             <Brands onOpenModal={openQuoteModal} />
-            <Business />
+            <Business onOpenModal={openBusinessModal} />
             <Location onOpenModal={openQuoteModal} />
           </>
         )}
@@ -65,6 +70,7 @@ const App: React.FC = () => {
       <Footer />
       
       <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />
+      <BusinessQuoteModal isOpen={isBusinessModalOpen} onClose={closeBusinessModal} />
 
       {/* Floating Action Button for Mobile */}
       <div className="fixed bottom-6 right-6 z-40 md:hidden">

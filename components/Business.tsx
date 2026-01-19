@@ -1,8 +1,11 @@
 import React from 'react';
 import { Building2, Factory, Store, School, Zap, ChevronRight } from 'lucide-react';
-import { WHATSAPP_BUSINESS_LINK } from '../constants';
 
-const Business: React.FC = () => {
+interface BusinessProps {
+  onOpenModal: () => void;
+}
+
+const Business: React.FC<BusinessProps> = ({ onOpenModal }) => {
   const targets = [
     { icon: Building2, label: "Oficinas" },
     { icon: Store, label: "Locales Comerciales" },
@@ -60,15 +63,13 @@ const Business: React.FC = () => {
                     ))}
                 </div>
 
-                <a
-                    href={WHATSAPP_BUSINESS_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
+                    onClick={onOpenModal}
                     className="inline-flex items-center justify-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold py-4 px-8 rounded-xl hover:bg-zinc-800 dark:hover:bg-gray-200 transition-colors shadow-lg shadow-zinc-200 dark:shadow-none"
                 >
-                    Cotizar para mi negocio
+                    Cotizar proyecto empresarial
                     <ChevronRight size={20} />
-                </a>
+                </button>
             </div>
 
             {/* Right Column: Visual */}

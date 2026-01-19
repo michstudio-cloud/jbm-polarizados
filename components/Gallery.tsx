@@ -4,7 +4,7 @@ import { Camera, Facebook, ExternalLink, MoveRight } from 'lucide-react';
 const Gallery: React.FC = () => {
   // Updated with new image list provided
   const images = [
-    "https://polarizados.site/wp-content/uploads/2026/01/63d6cd8e3c6309595240d4495839b42f.jpg", // Instalación profesional
+    "https://polarizados.site/wp-content/uploads/2026/01/63d6cd8e3c6309595240d4495839b42f-1.webp", // Instalación profesional
     "https://polarizados.site/wp-content/uploads/2026/01/549977215_1391718112955780_8342074345367458224_n-2.jpg", // Trabajo en SUV Changan
     "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.44-1.jpg", // Trabajo en SUV
     "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53.jpeg", // Polarizado inteligente

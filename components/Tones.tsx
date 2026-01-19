@@ -92,7 +92,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
                 "
             >
                {/* Use the tint meter photo for simulation context */}
-              <div className="h-48 relative bg-cover bg-center" style={{ backgroundImage: 'url(https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg)' }}>
+              <div className="h-48 relative bg-cover bg-center" style={{ backgroundImage: 'url(https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.webp)' }}>
                   <div className={`absolute inset-0 bg-black ${tone.opacity} transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center`}>
                      <span className="text-4xl font-black text-white border-4 border-white p-4 rounded-full drop-shadow-lg">{tone.pct}</span>
                   </div>
@@ -138,7 +138,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
             {/* Image Container */}
             <div className="relative h-80 md:h-[500px] w-full">
                 <img 
-                    src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg" 
+                    src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.webp" 
                     alt="Medidor de transmisión de luz (Tint Meter)" 
                     className="w-full h-full object-cover object-center"
                 />

@@ -17,7 +17,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ onOpenModal }) => {
                {/* High Quality Product Image */}
                <div className="h-48 overflow-hidden">
                   <img 
-                    src="https://polarizados.site/wp-content/uploads/2026/01/2023-Tesla-Model-Y-Grey-Black-HTX-XRP-WC-19-png.jpg" 
+                    src="https://polarizados.site/wp-content/uploads/2026/01/2023-Tesla-Model-Y-Grey-Black-HTX-XRP.webp" 
                     alt="Tesla con polarizado de alta calidad"
                     className="w-full h-full object-cover"
                   />

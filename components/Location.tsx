@@ -39,32 +39,28 @@ const Location: React.FC<LocationProps> = ({ onOpenModal }) => {
                     </div>
                 </div>
             </div>
-
-            <div className="mt-10">
-                <h3 className="text-2xl font-bold mb-4">¿Listo para proteger tu inversión?</h3>
-                <p className="text-gray-400 mb-6">Reduce el calor, cuida el interior de tu vehículo y maneja con mayor confort todos los días.</p>
-                <button
-                    onClick={onOpenModal}
-                    className="inline-block bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-orange-900/50 transition-all"
-                >
-                    Agendar cita por WhatsApp
-                </button>
-            </div>
           </div>
 
-          <div className="h-96 bg-zinc-800 rounded-2xl overflow-hidden relative">
+          <div className="h-96 bg-zinc-800 rounded-2xl overflow-hidden relative border border-zinc-700">
             {/* Provided shop work image */}
             <img 
                 src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.49.jpg" 
                 alt="Taller de Polarizado JBM" 
-                className="w-full h-full object-cover opacity-70"
+                className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity duration-500"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800 text-center">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800 text-center backdrop-blur-sm">
                     <MapPin className="text-orange-500 mx-auto mb-2" size={32} />
                     <span className="font-bold">Ver Ubicación</span>
                 </div>
             </div>
+            <a 
+                href="https://maps.app.goo.gl/fEXVitcrRdE8kX7P7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10"
+                aria-label="Ver ubicación en Google Maps"
+            ></a>
           </div>
         </div>
       </div>

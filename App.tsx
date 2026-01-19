@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 import Terms from './components/Terms';
 import QuoteModal from './components/QuoteModal';
 import BusinessQuoteModal from './components/BusinessQuoteModal';
+import FinalCTA from './components/FinalCTA';
 import { WHATSAPP_LINK } from './constants';
 
 const App: React.FC = () => {
@@ -68,6 +69,7 @@ const App: React.FC = () => {
             <Brands onOpenModal={openQuoteModal} />
             <Business onOpenModal={openBusinessModal} />
             <Location onOpenModal={openQuoteModal} />
+            <FinalCTA onOpenModal={openQuoteModal} />
           </>
         )}
       </main>

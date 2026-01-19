@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, Shield, Scale } from 'lucide-react';
+import { Eye, Shield, Scale, ScanEye } from 'lucide-react';
 
 interface TonesProps {
   onOpenModal: () => void;
@@ -42,7 +42,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
           ))}
         </div>
 
-        <div className="bg-orange-50 dark:bg-orange-900/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-orange-50 dark:bg-orange-900/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
             <div className="flex-1">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                     Consideramos todo para tu recomendación
@@ -69,6 +69,30 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
                 Recibir recomendación
             </button>
         </div>
+
+        {/* Tint Meter Image Section */}
+        <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-zinc-800 relative">
+            <img 
+                src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg" 
+                alt="Medidor de transmisión de luz (Tint Meter)" 
+                className="w-full h-64 md:h-[500px] object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-8">
+                <div className="max-w-3xl">
+                    <div className="flex items-center gap-3 mb-2 text-orange-500">
+                        <ScanEye size={32} />
+                        <span className="font-bold uppercase tracking-wider text-sm">Precisión Garantizada</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                        No adivinamos: Medimos.
+                    </h3>
+                    <p className="text-gray-300 text-lg">
+                        Utilizamos medidores digitales (Tint Meter) para demostrarte el porcentaje real de luz que ingresa a través del vidrio. Te aseguras de cumplir con la ley y obtener la protección exacta que pagaste.
+                    </p>
+                </div>
+            </div>
+        </div>
+
       </div>
     </section>
   );

@@ -77,7 +77,7 @@ const Business: React.FC<BusinessProps> = ({ onOpenModal }) => {
                  {/* Updated building image */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-zinc-800 aspect-[4/5] lg:aspect-square">
                     <img 
-                        src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-18-at-19.35.15.jpeg" 
+                        src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.43-2.jpeg" 
                         alt="Edificio corporativo con polarizado" 
                         className="w-full h-full object-cover"
                     />

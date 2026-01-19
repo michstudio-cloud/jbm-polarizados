@@ -57,7 +57,7 @@ const Process: React.FC<ProcessProps> = ({ onOpenModal }) => {
                 onClick={onOpenModal}
                 className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
             >
-                Agendar ahora
+                Cotizar ahora
             </button>
         </div>
       </div>

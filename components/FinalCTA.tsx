@@ -31,7 +31,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenModal }) => {
             onClick={onOpenModal}
             className="inline-block bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-2xl shadow-orange-900/50 transition-all transform hover:scale-105 hover:-translate-y-1"
         >
-            Agendar cita por WhatsApp
+            Cotizar por WhatsApp
         </button>
       </div>
     </section>

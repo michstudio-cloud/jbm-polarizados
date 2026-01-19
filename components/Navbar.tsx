@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
               onClick={onOpenModal}
               className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg shadow-orange-900/20 transition-transform transform hover:scale-105 active:scale-95"
             >
-              Agendar Cita
+              Cotizar Ahora
             </button>
           </div>
         </div>

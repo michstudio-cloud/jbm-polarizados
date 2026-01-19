@@ -108,9 +108,9 @@ const App: React.FC = () => {
                     <Brands onOpenModal={openQuoteModal} />
                     <Business onOpenModal={openBusinessModal} />
                     <Reviews />
-                    <Location onOpenModal={openQuoteModal} />
                     <FAQ />
                     <FinalCTA onOpenModal={openQuoteModal} />
+                    <Location onOpenModal={openQuoteModal} />
                 </>
             );
     }

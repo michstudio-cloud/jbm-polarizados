@@ -41,6 +41,11 @@ const LegalityWarranty: React.FC<LegalityWarrantyProps> = ({ onOpenModal }) => {
                         Respaldo real en Reynosa
                     </li>
                 </ul>
+                <div className="mt-6 relative z-10">
+                    <a href="#/garantia" className="text-sm font-bold text-gray-900 dark:text-white border-b-2 border-green-500 hover:text-green-600 transition-colors">
+                        Ver detalles de garantía
+                    </a>
+                </div>
             </div>
 
             <div className="bg-white dark:bg-zinc-950 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-zinc-800 relative overflow-hidden">

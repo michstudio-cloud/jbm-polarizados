@@ -48,11 +48,11 @@ const App: React.FC = () => {
             <TikTokVideos />
             <Tones />
             <LegalityWarranty />
-            <Pricing />
+            <Gallery />
             <Process />
+            <Pricing />
             <Brands />
             <Business />
-            <Gallery />
             <Location />
           </>
         )}

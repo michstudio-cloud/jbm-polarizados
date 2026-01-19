@@ -91,7 +91,7 @@ const Business: React.FC<BusinessProps> = ({ onOpenModal }) => {
                 
                 {/* Float Card - Moved to Top Right */}
                 <div className="absolute -top-6 -right-6 bg-white dark:bg-zinc-900 p-6 rounded-xl shadow-xl border border-gray-100 dark:border-zinc-800 max-w-xs hidden md:block">
-                     <div className="flex items-center gap-4 mb-3">
+                     <div className="flex items-center gap-4">
                         <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg text-green-600">
                             <Zap size={24} />
                         </div>

@@ -5,6 +5,7 @@ import CarBrands from './components/CarBrands';
 import ProblemSolution from './components/ProblemSolution';
 import ProductInfo from './components/ProductInfo';
 import Tones from './components/Tones';
+import SecurityFilms from './components/SecurityFilms';
 import LegalityWarranty from './components/LegalityWarranty';
 import Pricing from './components/Pricing';
 import Process from './components/Process';
@@ -54,12 +55,13 @@ const App: React.FC = () => {
         ) : (
           <>
             <Hero onOpenModal={openQuoteModal} />
+            <CarBrands />
             <ProblemSolution onOpenModal={openQuoteModal} />
             <ProductInfo onOpenModal={openQuoteModal} />
             <TikTokVideos />
             <Tones onOpenModal={openQuoteModal} />
+            <SecurityFilms onOpenModal={openQuoteModal} />
             <LegalityWarranty onOpenModal={openQuoteModal} />
-            <CarBrands />
             <Gallery />
             <Process onOpenModal={openQuoteModal} />
             <Pricing onOpenModal={openQuoteModal} />

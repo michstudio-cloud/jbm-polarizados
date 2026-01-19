@@ -21,18 +21,38 @@ import Terms from './components/Terms';
 import QuoteModal from './components/QuoteModal';
 import BusinessQuoteModal from './components/BusinessQuoteModal';
 import FinalCTA from './components/FinalCTA';
-import { WHATSAPP_LINK } from './constants';
+import ServiceDetail from './components/ServiceDetail';
+import { SERVICES } from './data/services';
 
 const App: React.FC = () => {
-  // Simple view state based on hash
-  const [isTermsPage, setIsTermsPage] = useState(false);
+  // Routing state
+  const [currentRoute, setCurrentRoute] = useState<string>('home');
+  const [serviceId, setServiceId] = useState<string | null>(null);
+
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [isBusinessModalOpen, setIsBusinessModalOpen] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
-      // Check if hash is strictly '#/terminos'
-      setIsTermsPage(window.location.hash === '#/terminos');
+      const hash = window.location.hash;
+      
+      if (hash === '#/terminos') {
+        setCurrentRoute('terms');
+        setServiceId(null);
+      } else if (hash.startsWith('#/servicios/')) {
+        const id = hash.replace('#/servicios/', '');
+        if (SERVICES[id]) {
+            setCurrentRoute('service');
+            setServiceId(id);
+        } else {
+            // Fallback if service doesn't exist
+            setCurrentRoute('home');
+            setServiceId(null);
+        }
+      } else {
+        setCurrentRoute('home');
+        setServiceId(null);
+      }
     };
 
     // Check on mount
@@ -49,34 +69,51 @@ const App: React.FC = () => {
   const openBusinessModal = () => setIsBusinessModalOpen(true);
   const closeBusinessModal = () => setIsBusinessModalOpen(false);
 
+  // Render specific page based on route
+  const renderContent = () => {
+    switch (currentRoute) {
+        case 'terms':
+            return <Terms />;
+        case 'service':
+            return serviceId && SERVICES[serviceId] ? (
+                <ServiceDetail service={SERVICES[serviceId]} onOpenModal={openQuoteModal} />
+            ) : (
+                <Hero onOpenModal={openQuoteModal} /> // Fallback
+            );
+        case 'home':
+        default:
+            return (
+                <>
+                    <Hero onOpenModal={openQuoteModal} />
+                    <CarBrands />
+                    <ProblemSolution onOpenModal={openQuoteModal} />
+                    <TikTokVideos />
+                    <ProductInfo onOpenModal={openQuoteModal} /> 
+                    <Tones onOpenModal={openQuoteModal} />
+                    <Gallery />
+                    <Process onOpenModal={openQuoteModal} />
+                    <SecurityFilms onOpenModal={openQuoteModal} />
+                    <LegalityWarranty onOpenModal={openQuoteModal} />
+                    <Pricing onOpenModal={openQuoteModal} />
+                    <Brands onOpenModal={openQuoteModal} />
+                    <Business onOpenModal={openBusinessModal} />
+                    <Reviews />
+                    <Location onOpenModal={openQuoteModal} />
+                    <FAQ />
+                    <FinalCTA onOpenModal={openQuoteModal} />
+                </>
+            );
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 font-sans selection:bg-orange-500 selection:text-white">
       <Navbar onOpenModal={openQuoteModal} />
+      
       <main>
-        {isTermsPage ? (
-          <Terms />
-        ) : (
-          <>
-            <Hero onOpenModal={openQuoteModal} />
-            <CarBrands />
-            <ProblemSolution onOpenModal={openQuoteModal} />
-            <TikTokVideos />
-            <ProductInfo onOpenModal={openQuoteModal} /> 
-            <Tones onOpenModal={openQuoteModal} />
-            <Gallery />
-            <Process onOpenModal={openQuoteModal} />
-            <SecurityFilms onOpenModal={openQuoteModal} />
-            <LegalityWarranty onOpenModal={openQuoteModal} />
-            <Pricing onOpenModal={openQuoteModal} />
-            <Brands onOpenModal={openQuoteModal} />
-            <Business onOpenModal={openBusinessModal} />
-            <Reviews />
-            <Location onOpenModal={openQuoteModal} />
-            <FAQ />
-            <FinalCTA onOpenModal={openQuoteModal} />
-          </>
-        )}
+        {renderContent()}
       </main>
+
       <Footer />
       
       <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />

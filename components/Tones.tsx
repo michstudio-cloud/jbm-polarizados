@@ -32,26 +32,34 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           
-          {/* XPEL Badge Moved Here */}
-          <div className="mb-8 flex flex-col items-center justify-center animate-fade-in-up w-full">
-            <span className="text-[10px] md:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
+          {/* XPEL Badge Optimized */}
+          <div className="mb-10 flex flex-col items-center justify-center animate-fade-in-up w-full">
+            <span className="text-[10px] md:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
                 Calidad Internacional
             </span>
-            <div className="inline-flex w-fit mx-auto items-center gap-2 md:gap-3 bg-gray-50 dark:bg-zinc-900 px-3 py-2 md:px-6 md:py-2 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-105 cursor-default max-w-[90vw]">
-                <span className="text-xs md:text-base font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
+            
+            <div className="group relative inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-orange-200 dark:hover:border-orange-900/30 transition-all duration-300 max-w-full">
+                <span className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-200 whitespace-nowrap tracking-tight">
                     Instaladores Certificados
                 </span>
-                {xpelBrand?.icon ? (
-                    <div className="h-4 md:h-7 w-auto min-w-[50px] md:min-w-[80px] text-black dark:text-white flex items-center justify-center">
-                        {xpelBrand.icon}
-                    </div>
-                ) : xpelBrand?.logo ? (
-                    <img 
-                        src={xpelBrand.logo} 
-                        alt="XPEL" 
-                        className="h-4 md:h-7 object-contain" 
-                    />
-                ) : null}
+                
+                {/* Vertical Divider */}
+                <div className="h-4 w-px bg-gray-200 dark:bg-zinc-700"></div>
+
+                {/* Logo Container with fixed widths for stability */}
+                <div className="h-4 sm:h-5 w-[70px] sm:w-[90px] flex items-center justify-center text-black dark:text-white opacity-90 group-hover:opacity-100 transition-opacity">
+                    {xpelBrand?.icon ? (
+                         <div className="w-full h-full flex items-center">
+                            {xpelBrand.icon}
+                         </div>
+                    ) : xpelBrand?.logo ? (
+                        <img 
+                            src={xpelBrand.logo} 
+                            alt="XPEL" 
+                            className="h-full w-auto object-contain" 
+                        />
+                    ) : null}
+                </div>
             </div>
           </div>
 

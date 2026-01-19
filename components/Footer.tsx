@@ -31,6 +31,7 @@ const Footer: React.FC = () => {
                     <li><a href="#precios" className="hover:text-orange-500 transition-colors">Precios y Paquetes</a></li>
                     <li><a href="#ubicacion" className="hover:text-orange-500 transition-colors">Ubicación y Horarios</a></li>
                     <li><a href="#galeria" className="hover:text-orange-500 transition-colors">Galería de Trabajos</a></li>
+                    <li><a href="#/garantia" className="hover:text-orange-500 transition-colors">Garantía de Polarizado</a></li>
                     <li><a href="#/terminos" className="hover:text-orange-500 transition-colors">Términos y Condiciones</a></li>
                 </ul>
             </div>

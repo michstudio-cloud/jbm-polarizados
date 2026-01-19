@@ -18,6 +18,7 @@ import Reviews from './components/Reviews';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
+import Warranty from './components/Warranty';
 import QuoteModal from './components/QuoteModal';
 import BusinessQuoteModal from './components/BusinessQuoteModal';
 import FinalCTA from './components/FinalCTA';
@@ -38,6 +39,9 @@ const App: React.FC = () => {
       
       if (hash === '#/terminos') {
         setCurrentRoute('terms');
+        setServiceId(null);
+      } else if (hash === '#/garantia') {
+        setCurrentRoute('warranty');
         setServiceId(null);
       } else if (hash.startsWith('#/servicios/')) {
         const id = hash.replace('#/servicios/', '');
@@ -74,6 +78,8 @@ const App: React.FC = () => {
     switch (currentRoute) {
         case 'terms':
             return <Terms />;
+        case 'warranty':
+            return <Warranty />;
         case 'service':
             return serviceId && SERVICES[serviceId] ? (
                 <ServiceDetail 

@@ -53,7 +53,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ onOpenModal }) => {
           </div>
 
           <div className="order-1 lg:order-2">
-            <h2 className="text-orange-600 font-bold tracking-wide uppercase mb-3 text-sm">Producto Principal</h2>
+            <h2 className="text-orange-600 font-bold tracking-wide uppercase mb-3 text-sm">🔥 Producto más vendido</h2>
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6">
               Polarizado Inteligente y Nanocerámico
             </h3>

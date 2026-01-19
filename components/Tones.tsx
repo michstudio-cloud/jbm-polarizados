@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, Shield, Scale, ScanEye } from 'lucide-react';
+import { Eye, Shield, Scale, ScanEye, MoveRight } from 'lucide-react';
 
 interface TonesProps {
   onOpenModal: () => void;
@@ -14,6 +14,15 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
 
   return (
     <section id="tonos" className="py-20 bg-white dark:bg-zinc-950">
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
@@ -25,9 +34,25 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        {/* Mobile Swipe Hint */}
+        <div className="md:hidden flex items-center gap-2 mb-2 text-xs text-gray-400 animate-pulse px-1">
+            <span>Desliza para ver tonos</span>
+            <MoveRight size={16} />
+        </div>
+
+        <div className="
+            flex overflow-x-auto pb-4 gap-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide mb-12
+            md:grid md:grid-cols-3 md:gap-8 md:pb-0 md:mx-0 md:px-0 md:overflow-visible
+        ">
           {tones.map((tone, idx) => (
-            <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-800 bg-gray-100 dark:bg-zinc-900">
+            <div 
+                key={idx} 
+                className="
+                    flex-shrink-0 w-[85vw] snap-center
+                    md:w-auto
+                    group relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-800 bg-gray-100 dark:bg-zinc-900
+                "
+            >
                {/* Use the tint meter photo for simulation context */}
               <div className="h-48 relative bg-cover bg-center" style={{ backgroundImage: 'url(https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg)' }}>
                   <div className={`absolute inset-0 bg-black ${tone.opacity} transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center`}>

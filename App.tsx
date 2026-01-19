@@ -10,6 +10,7 @@ import Process from './components/Process';
 import Brands from './components/Brands';
 import Business from './components/Business';
 import Gallery from './components/Gallery';
+import TikTokVideos from './components/TikTokVideos';
 import Location from './components/Location';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
@@ -44,6 +45,7 @@ const App: React.FC = () => {
             <Hero />
             <ProblemSolution />
             <ProductInfo />
+            <TikTokVideos />
             <Tones />
             <LegalityWarranty />
             <Pricing />

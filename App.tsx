@@ -57,13 +57,14 @@ const App: React.FC = () => {
             <Hero onOpenModal={openQuoteModal} />
             <CarBrands />
             <ProblemSolution onOpenModal={openQuoteModal} />
-            <ProductInfo onOpenModal={openQuoteModal} />
             <TikTokVideos />
+            <ProductInfo onOpenModal={openQuoteModal} /> 
             <Tones onOpenModal={openQuoteModal} />
             <SecurityFilms onOpenModal={openQuoteModal} />
             <LegalityWarranty onOpenModal={openQuoteModal} />
             <Gallery />
             <Process onOpenModal={openQuoteModal} />
+            <LegalityWarranty onOpenModal={openQuoteModal} />
             <Pricing onOpenModal={openQuoteModal} />
             <Brands onOpenModal={openQuoteModal} />
             <Business onOpenModal={openBusinessModal} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FEATURES_PROBLEM } from '../constants';
-import { ShieldAlert, Flame } from 'lucide-react';
+import { ShieldAlert, Flame, MoveRight } from 'lucide-react';
 
 interface ProblemSolutionProps {
   onOpenModal: () => void;
@@ -9,6 +9,15 @@ interface ProblemSolutionProps {
 const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenModal }) => {
   return (
     <section id="problema" className="py-20 bg-white dark:bg-zinc-950">
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -34,9 +43,25 @@ const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenModal }) => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Mobile Swipe Hint */}
+          <div className="sm:hidden flex items-center gap-2 mb-2 text-xs text-gray-400 animate-pulse px-1 mt-8 lg:mt-0">
+             <span>Desliza para ver beneficios</span>
+             <MoveRight size={16} />
+          </div>
+
+          <div className="
+            flex overflow-x-auto pb-4 gap-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide
+            sm:grid sm:grid-cols-2 sm:gap-6 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible
+          ">
             {FEATURES_PROBLEM.map((feature, idx) => (
-              <div key={idx} className="bg-gray-50 dark:bg-zinc-900 p-6 rounded-2xl border border-gray-100 dark:border-zinc-800 hover:border-orange-500/30 transition-colors">
+              <div 
+                key={idx} 
+                className="
+                    flex-shrink-0 w-[85vw] snap-center
+                    sm:w-auto
+                    bg-gray-50 dark:bg-zinc-900 p-6 rounded-2xl border border-gray-100 dark:border-zinc-800 hover:border-orange-500/30 transition-colors
+                "
+              >
                 <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4">
                   <feature.icon size={24} />
                 </div>

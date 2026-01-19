@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
-import { WHATSAPP_LINK } from '../constants';
 
 interface NavbarProps {
   onOpenModal: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -24,24 +21,16 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
   }, []);
 
   // Determine navbar classes based on state
-  // Transparent at top, Solid when scrolled OR when mobile menu is open
-  const navClasses = (isScrolled || isOpen)
+  // Transparent at top, Solid when scrolled
+  const navClasses = isScrolled
     ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-gray-200 dark:border-zinc-800 shadow-sm'
     : 'bg-transparent border-b border-transparent';
-
-  const navLinks = [
-    { name: 'Beneficios', href: '#problema' },
-    { name: 'Producto', href: '#producto' },
-    { name: 'Tonos', href: '#tonos' },
-    { name: 'Precios', href: '#precios' },
-    { name: 'Galería', href: '#galeria' },
-    { name: 'Ubicación', href: '#ubicacion' },
-  ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${navClasses}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-3">
             <img 
               src="https://polarizados.site/wp-content/uploads/2026/01/jbm-logo.svg" 
@@ -50,69 +39,18 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
             />
           </div>
           
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Right Side Actions (Always Visible) */}
+          <div className="flex items-center gap-3 md:gap-4">
             <ThemeToggle />
             <button
               onClick={onOpenModal}
-              className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-transform transform hover:scale-105"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg shadow-orange-900/20 transition-transform transform hover:scale-105 active:scale-95"
             >
               Agendar Cita
-            </button>
-          </div>
-
-          <div className="-mr-2 flex lg:hidden gap-4 items-center">
-            <ThemeToggle />
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-orange-600 focus:outline-none"
-            >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="lg:hidden bg-white dark:bg-zinc-950 border-b border-gray-200 dark:border-zinc-800 shadow-xl">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-500 block px-3 py-2 rounded-md text-base font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                onOpenModal();
-              }}
-              className="block w-full text-center mt-4 bg-orange-600 text-white px-4 py-3 rounded-lg font-bold"
-            >
-              Agendar Cita
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

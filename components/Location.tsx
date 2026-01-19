@@ -41,26 +41,18 @@ const Location: React.FC<LocationProps> = ({ onOpenModal }) => {
             </div>
           </div>
 
-          <div className="h-96 bg-zinc-800 rounded-2xl overflow-hidden relative border border-zinc-700">
-            {/* Provided shop work image */}
-            <img 
-                src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.49.jpg" 
-                alt="Taller de Polarizado JBM" 
-                className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity duration-500"
-            />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800 text-center backdrop-blur-sm">
-                    <MapPin className="text-orange-500 mx-auto mb-2" size={32} />
-                    <span className="font-bold">Ver Ubicación</span>
-                </div>
-            </div>
-            <a 
-                href="https://maps.app.goo.gl/fEXVitcrRdE8kX7P7" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="absolute inset-0 z-10"
-                aria-label="Ver ubicación en Google Maps"
-            ></a>
+          <div className="h-96 bg-zinc-800 rounded-2xl overflow-hidden relative border border-zinc-700 shadow-xl">
+             <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.134894454796!2d-98.32365152457562!3d26.04081049701564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866505c3cab58f13%3A0xcb202a18f3def61d!2sJBM%20TECNOLOG%C3%8DA%20SOLAR!5e1!3m2!1sen!2sus!4v1768802728730!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación JBM Tecnología Solar"
+                className="w-full h-full"
+            ></iframe>
           </div>
         </div>
       </div>

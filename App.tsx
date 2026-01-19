@@ -64,7 +64,6 @@ const App: React.FC = () => {
             <LegalityWarranty onOpenModal={openQuoteModal} />
             <Gallery />
             <Process onOpenModal={openQuoteModal} />
-            <LegalityWarranty onOpenModal={openQuoteModal} />
             <Pricing onOpenModal={openQuoteModal} />
             <Brands onOpenModal={openQuoteModal} />
             <Business onOpenModal={openBusinessModal} />

@@ -1,28 +1,95 @@
-import React, { useRef } from 'react';
-import { Play, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { Play, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+
+// Video data extracted from the provided embeds
+const TIKTOK_DATA = [
+  { id: '7552701695441095954', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7552701695441095954' },
+  { id: '7594697694078094599', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7594697694078094599' },
+  { id: '7584652938250046727', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7584652938250046727' },
+  { id: '7572019956620004626', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7572019956620004626' },
+  { id: '7558130562163150088', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7558130562163150088' },
+  { id: '7566105310008560904', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7566105310008560904' },
+  { id: '7566446331221249288', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7566446331221249288' },
+  { id: '7566449531177536786', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7566449531177536786' },
+  { id: '7559784082155080978', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7559784082155080978' },
+  { id: '7560856821670350088', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7560856821670350088' },
+  { id: '7559051380179078418', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7559051380179078418' },
+  { id: '7558702573025381650', url: 'https://www.tiktok.com/@jbm.tecnologiasolar/video/7558702573025381650' }
+];
+
+const TikTokEmbedItem: React.FC<{ id: string; url: string }> = ({ id, url }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (isLoaded) {
+      // Check if the script is already added
+      const scriptId = 'tiktok-embed-script';
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = 'https://www.tiktok.com/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+      } else {
+        // If script exists, we might need to tell it to check for new embeds
+        // TikTok's embed.js usually observes the DOM, but sometimes needs a nudge if added late
+        if ((window as any).tiktok?.embed?.load) {
+            (window as any).tiktok.embed.load();
+        }
+      }
+    }
+  }, [isLoaded]);
+
+  if (!isLoaded) {
+    return (
+      <div 
+        onClick={() => setIsLoaded(true)}
+        className="flex-shrink-0 w-[325px] h-[580px] relative snap-center rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group/card hover:border-zinc-700 transition-all cursor-pointer shadow-xl flex flex-col items-center justify-center"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black opacity-50"></div>
+        
+        <div className="relative z-10 flex flex-col items-center p-6 text-center">
+             <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#00f2ea] to-[#ff0050] p-[3px] mb-6 group-hover/card:scale-110 transition-transform duration-500 shadow-lg shadow-black/50">
+                <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+                    <Play size={32} className="text-white fill-white ml-2" />
+                </div>
+            </div>
+            <h3 className="text-white font-bold text-xl mb-2">Ver Video</h3>
+            <p className="text-zinc-500 text-sm">Cargar contenido de TikTok</p>
+        </div>
+        
+        {/* TikTok decorative branding */}
+        <div className="absolute bottom-6 flex gap-1">
+             <div className="w-2 h-2 rounded-full bg-[#00f2ea] animate-pulse"></div>
+             <div className="w-2 h-2 rounded-full bg-[#ff0050] animate-pulse delay-75"></div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex-shrink-0 w-[325px] snap-center bg-zinc-900 rounded-2xl overflow-hidden">
+        <blockquote 
+            className="tiktok-embed" 
+            cite={url} 
+            data-video-id={id} 
+            style={{ maxWidth: '325px', minWidth: '325px' }}
+        > 
+            <section> 
+                <a target="_blank" href={`https://www.tiktok.com/@jbm.tecnologiasolar?refer=embed`}>@jbm.tecnologiasolar</a> 
+            </section> 
+        </blockquote>
+    </div>
+  );
+};
 
 const TikTokVideos: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const videos = [
-    "https://vt.tiktok.com/ZSa8aGr1N/",
-    "https://vt.tiktok.com/ZSa8ab95k/",
-    "https://vt.tiktok.com/ZSa8anSK2/",
-    "https://vt.tiktok.com/ZSa8mhe6s/",
-    "https://vt.tiktok.com/ZSa8mkotT/",
-    "https://vt.tiktok.com/ZSa8mrnEs/",
-    "https://vt.tiktok.com/ZSa8mArkJ/",
-    "https://vt.tiktok.com/ZSa8mNuFt/",
-    "https://vt.tiktok.com/ZSa8ujfXs/",
-    "https://vt.tiktok.com/ZSa8muUhn/",
-    "https://vt.tiktok.com/ZSa8u1uJf/",
-    "https://vt.tiktok.com/ZSa8ujmHj/"
-  ];
-
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = 300; // Approximate card width + gap
+      const scrollAmount = 340; // width + gap
       if (direction === 'left') {
         current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
       } else {
@@ -43,7 +110,7 @@ const TikTokVideos: React.FC = () => {
                 Resultados en Video
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-                Mira nuestras instalaciones y pruebas de calidad en TikTok. Transparencia total en cada trabajo.
+                Mira nuestras instalaciones y pruebas de calidad en TikTok.
             </p>
         </div>
 
@@ -68,38 +135,11 @@ const TikTokVideos: React.FC = () => {
             {/* Carousel Container */}
             <div 
                 ref={scrollRef}
-                className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide px-4 md:px-0"
+                className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide px-4 md:px-0 items-start"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-                {videos.map((url, idx) => (
-                    <a 
-                        key={idx}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-shrink-0 w-64 aspect-[9/16] relative snap-center rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group/card hover:border-zinc-700 transition-all hover:scale-[1.02] shadow-xl"
-                    >
-                        {/* Background Design since we don't have thumbnails */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black opacity-50"></div>
-                        <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                            
-                            <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#00f2ea] to-[#ff0050] p-[2px] mb-6 group-hover/card:scale-110 transition-transform duration-500">
-                                <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                                    <Play size={24} className="text-white fill-white ml-1" />
-                                </div>
-                            </div>
-                            
-                            <h3 className="text-white font-bold text-lg mb-2">Video #{idx + 1}</h3>
-                            <p className="text-zinc-500 text-sm mb-6">Ver proceso de instalación y resultados</p>
-                            
-                            <span className="inline-flex items-center gap-2 text-xs font-bold text-white bg-white/10 px-4 py-2 rounded-full group-hover/card:bg-white/20 transition-colors">
-                                Abrir TikTok <ExternalLink size={12} />
-                            </span>
-                        </div>
-                        
-                        {/* Decorative elements */}
-                        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#00f2ea] to-[#ff0050]"></div>
-                    </a>
+                {TIKTOK_DATA.map((video) => (
+                    <TikTokEmbedItem key={video.id} id={video.id} url={video.url} />
                 ))}
             </div>
         </div>

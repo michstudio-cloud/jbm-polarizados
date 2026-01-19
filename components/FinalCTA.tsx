@@ -21,10 +21,15 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenModal }) => {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-900/30 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-wide uppercase mb-6 backdrop-blur-sm">
+            <Flame size={14} className="fill-current" />
+            Inversión Segura
+        </div>
+
         <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight leading-tight">
           ¿Listo para proteger tu inversión?
         </h2>
-        <p className="text-xl text-orange-500 font-bold mb-8 uppercase tracking-wide">
+        <p className="text-xl text-orange-500 mb-8 tracking-wide">
             Protege tu unidad con un polarizado de calidad Premium
         </p>
         

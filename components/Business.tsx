@@ -83,7 +83,7 @@ const Business: React.FC<BusinessProps> = ({ onOpenModal }) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
                          <div className="text-white">
-                            <p className="font-bold text-xl mb-2">Confort Visual y Térmico</p>
+                            <p className="font-bold text-xl mb-2">Control solar profesional</p>
                             <p className="text-gray-300 text-sm">Mejora la productividad de tu equipo reduciendo el calor y el brillo excesivo.</p>
                          </div>
                     </div>

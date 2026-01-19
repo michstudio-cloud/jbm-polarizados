@@ -51,7 +51,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             <span className="text-[10px] md:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
                 Calidad Internacional
             </span>
-            <div className="inline-flex items-center gap-2 md:gap-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm px-3 py-2 md:px-6 md:py-2 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-105 cursor-default max-w-[90vw]">
+            <div className="inline-flex w-fit mx-auto items-center gap-2 md:gap-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm px-3 py-2 md:px-6 md:py-2 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-105 cursor-default max-w-[90vw]">
                 <span className="text-xs md:text-base font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
                     Instaladores Certificados
                 </span>

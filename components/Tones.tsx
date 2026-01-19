@@ -10,6 +10,9 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
     { pct: "05%", label: "Muy Oscuro", desc: "Máxima privacidad", opacity: "bg-opacity-95" },
     { pct: "20%", label: "Oscuro Equilibrado", desc: "Balance privacidad/visión", opacity: "bg-opacity-80" },
     { pct: "35%", label: "Claro (Legal)", desc: "Visibilidad total ideal", opacity: "bg-opacity-65" },
+    { pct: "50%", label: "Extra Claro", desc: "Protección con mucha luz", opacity: "bg-opacity-50" },
+    { pct: "70%", label: "Semitransparente", desc: "Casi invisible, alto rechazo", opacity: "bg-opacity-30" },
+    { pct: "100%", label: "Transparente", desc: "Invisible (Parabrisas)", opacity: "bg-opacity-0" },
   ];
 
   return (
@@ -56,7 +59,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
                {/* Use the tint meter photo for simulation context */}
               <div className="h-48 relative bg-cover bg-center" style={{ backgroundImage: 'url(https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg)' }}>
                   <div className={`absolute inset-0 bg-black ${tone.opacity} transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center`}>
-                     <span className="text-4xl font-black text-white border-4 border-white p-4 rounded-full">{tone.pct}</span>
+                     <span className="text-4xl font-black text-white border-4 border-white p-4 rounded-full drop-shadow-lg">{tone.pct}</span>
                   </div>
               </div>
               <div className="p-6 text-center">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Building2 } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: () => void;
@@ -7,7 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
-    <div className="relative pt-16 pb-12 sm:pt-24 lg:pb-0 overflow-hidden">
+    <div className="relative pt-24 pb-16 sm:pt-32 lg:pb-24 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -20,44 +20,52 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-xs font-bold tracking-wide uppercase mb-6 border border-orange-200 dark:border-orange-800/50">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-xs font-bold tracking-wide uppercase mb-8 border border-orange-200 dark:border-orange-800/50">
           <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
           Especialistas en control solar
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto mb-8">
           Olvídate del calor. <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Polarizado Legal</span> en Reynosa.
         </h1>
 
-        <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
           Reduce hasta 60% el calor interior, protege tu vehículo, protege tu inversión y circula 100% legal en Reynosa desde el primer día.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 mb-12">
+        <div className="flex flex-col items-center gap-6 w-full sm:w-auto px-4 mb-16">
           <button
             onClick={onOpenModal}
-            className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-orange-500/30 transition-all transform hover:-translate-y-1"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-orange-500/30 transition-all transform hover:-translate-y-1"
           >
             Cotizar mi polarizado
             <ArrowRight size={20} />
           </button>
+          
+          <a 
+            href="#negocios" 
+            className="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800/50"
+          >
+             <Building2 size={16} />
+             <span>¿Cotizar para negocio o edificio? Clic aquí</span>
+          </a>
         </div>
 
-        <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-400 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-400 w-full max-w-5xl">
           {[
             "Interior 15 °C más fresco",
             "Visibilidad clara día y noche",
             "Instalación, sin burbujas",
             "Garantía real por escrito"
           ].map((item, index) => (
-            <div key={index} className="flex flex-col sm:flex-row items-center justify-center gap-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm px-2 sm:px-4 py-3 sm:py-2 rounded-lg border border-gray-200 dark:border-zinc-800 text-center sm:text-left">
+            <div key={index} className="flex flex-col sm:flex-row items-center justify-center gap-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm px-4 py-4 rounded-xl border border-gray-200 dark:border-zinc-800 text-center sm:text-left shadow-sm hover:bg-white/80 dark:hover:bg-zinc-900/80 transition-colors">
               <CheckCircle2 className="text-orange-500 flex-shrink-0" size={18} />
               <span>{item}</span>
             </div>
           ))}
         </div>
 
-        <p className="mt-6 text-xs text-gray-500 dark:text-gray-400 font-medium opacity-80 animate-pulse">
+        <p className="mt-12 text-xs text-gray-500 dark:text-gray-400 font-medium opacity-80 animate-pulse">
             El calor daña interiores, pantallas y comodidad. Cada día sin polarizado te cuesta más.
         </p>
 

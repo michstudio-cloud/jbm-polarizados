@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Play, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 
 // Video data extracted from the provided embeds
 const TIKTOK_DATA = [
@@ -18,10 +18,43 @@ const TIKTOK_DATA = [
 ];
 
 const TikTokEmbedItem: React.FC<{ id: string; url: string }> = ({ id, url }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isLoaded) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Delay slightly to prioritize UI thread
+            setTimeout(() => {
+                setIsVisible(true);
+            }, 200);
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '200px', // Load before it comes into full view
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
       // Check if the script is already added
       const scriptId = 'tiktok-embed-script';
       if (!document.getElementById(scriptId)) {
@@ -31,54 +64,45 @@ const TikTokEmbedItem: React.FC<{ id: string; url: string }> = ({ id, url }) => 
         script.async = true;
         document.body.appendChild(script);
       } else {
-        // If script exists, we might need to tell it to check for new embeds
-        // TikTok's embed.js usually observes the DOM, but sometimes needs a nudge if added late
+        // If script exists, force check for new embeds
         if ((window as any).tiktok?.embed?.load) {
             (window as any).tiktok.embed.load();
         }
       }
     }
-  }, [isLoaded]);
-
-  if (!isLoaded) {
-    return (
-      <div 
-        onClick={() => setIsLoaded(true)}
-        className="flex-shrink-0 w-[325px] h-[580px] relative snap-center rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group/card hover:border-zinc-700 transition-all cursor-pointer shadow-xl flex flex-col items-center justify-center"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black opacity-50"></div>
-        
-        <div className="relative z-10 flex flex-col items-center p-6 text-center">
-             <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#00f2ea] to-[#ff0050] p-[3px] mb-6 group-hover/card:scale-110 transition-transform duration-500 shadow-lg shadow-black/50">
-                <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                    <Play size={32} className="text-white fill-white ml-2" />
-                </div>
-            </div>
-            <h3 className="text-white font-bold text-xl mb-2">Ver Video</h3>
-            <p className="text-zinc-500 text-sm">Cargar contenido de TikTok</p>
-        </div>
-        
-        {/* TikTok decorative branding */}
-        <div className="absolute bottom-6 flex gap-1">
-             <div className="w-2 h-2 rounded-full bg-[#00f2ea] animate-pulse"></div>
-             <div className="w-2 h-2 rounded-full bg-[#ff0050] animate-pulse delay-75"></div>
-        </div>
-      </div>
-    );
-  }
+  }, [isVisible]);
 
   return (
-    <div className="flex-shrink-0 w-[325px] snap-center bg-zinc-900 rounded-2xl overflow-hidden">
-        <blockquote 
-            className="tiktok-embed" 
-            cite={url} 
-            data-video-id={id} 
-            style={{ maxWidth: '325px', minWidth: '325px' }}
-        > 
-            <section> 
-                <a target="_blank" href={`https://www.tiktok.com/@jbm.tecnologiasolar?refer=embed`}>@jbm.tecnologiasolar</a> 
-            </section> 
-        </blockquote>
+    <div 
+        ref={containerRef}
+        className="flex-shrink-0 w-[325px] min-h-[580px] snap-center bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 relative"
+    >
+        {!isVisible ? (
+            // Skeleton Loading State
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-900 animate-pulse">
+                <div className="w-16 h-16 rounded-full bg-zinc-800 mb-4"></div>
+                <div className="w-3/4 h-4 bg-zinc-800 rounded mb-2"></div>
+                <div className="w-1/2 h-4 bg-zinc-800 rounded"></div>
+                <div className="absolute bottom-6 flex gap-1">
+                    <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                    <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                </div>
+            </div>
+        ) : (
+            // Actual Embed
+            <blockquote 
+                className="tiktok-embed" 
+                cite={url} 
+                data-video-id={id} 
+                style={{ maxWidth: '325px', minWidth: '325px', margin: 0 }}
+            > 
+                <section> 
+                    <div className="flex items-center justify-center h-[580px] w-full">
+                        <Loader2 className="animate-spin text-orange-500" />
+                    </div>
+                </section> 
+            </blockquote>
+        )}
     </div>
   );
 };

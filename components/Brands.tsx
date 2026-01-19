@@ -15,10 +15,14 @@ const Brands: React.FC<BrandsProps> = ({ onOpenModal }) => {
             <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
                 Confianza respaldada por agencias y empresas
             </h2>
-            <div className="flex flex-wrap justify-center gap-6 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12 opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500">
                 {BRANDS_AUTO.map((brand, idx) => (
-                    <div key={idx} className="flex items-center justify-center px-6 py-4 border border-gray-100 dark:border-zinc-800 rounded-xl bg-gray-50 dark:bg-zinc-900">
-                        <span className="text-xl font-bold text-gray-700 dark:text-gray-300">{brand.name}</span>
+                    <div key={idx} className="flex items-center justify-center px-6 py-4 border border-gray-100 dark:border-zinc-800 rounded-xl bg-gray-50 dark:bg-zinc-900 min-w-[120px]">
+                        {brand.icon ? (
+                            brand.icon
+                        ) : (
+                            <span className="text-xl font-bold text-gray-700 dark:text-gray-300">{brand.name}</span>
+                        )}
                     </div>
                 ))}
             </div>

@@ -1,4 +1,5 @@
 import { LucideIcon } from 'lucide-react';
+import React from 'react';
 
 export interface SectionProps {
   id?: string;
@@ -26,4 +27,5 @@ export interface NavLink {
 export interface Brand {
   name: string;
   logo?: string;
+  icon?: React.ReactNode;
 }

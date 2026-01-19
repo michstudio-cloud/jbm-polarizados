@@ -5,6 +5,8 @@ const CarBrands: React.FC = () => {
   return (
     <div className="bg-white dark:bg-zinc-950 border-b border-gray-100 dark:border-zinc-900 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        
+        {/* Dealership Standards */}
         <p className="text-center text-xs font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest mb-8">
             Confianza y estándares de agencia
         </p>

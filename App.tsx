@@ -15,6 +15,7 @@ import Gallery from './components/Gallery';
 import TikTokVideos from './components/TikTokVideos';
 import Location from './components/Location';
 import Reviews from './components/Reviews';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import QuoteModal from './components/QuoteModal';
@@ -71,6 +72,7 @@ const App: React.FC = () => {
             <Business onOpenModal={openBusinessModal} />
             <Reviews />
             <Location onOpenModal={openQuoteModal} />
+            <FAQ />
             <FinalCTA onOpenModal={openQuoteModal} />
           </>
         )}

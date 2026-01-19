@@ -51,19 +51,19 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             <span className="text-[10px] md:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
                 Calidad Internacional
             </span>
-            <div className="flex items-center gap-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm px-6 py-2 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-105 cursor-default">
-                <span className="text-sm md:text-base font-bold text-gray-900 dark:text-gray-100">
+            <div className="flex items-center gap-2 md:gap-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm px-4 py-1.5 md:px-6 md:py-2 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-105 cursor-default whitespace-nowrap">
+                <span className="text-xs md:text-base font-bold text-gray-900 dark:text-gray-100">
                     Instaladores Certificados
                 </span>
                 {xpelBrand?.icon ? (
-                    <div className="h-5 md:h-7 w-auto text-black dark:text-white">
+                    <div className="h-4 md:h-7 w-auto text-black dark:text-white">
                         {xpelBrand.icon}
                     </div>
                 ) : xpelBrand?.logo ? (
                     <img 
                         src={xpelBrand.logo} 
                         alt="XPEL" 
-                        className="h-5 md:h-7 object-contain" 
+                        className="h-4 md:h-7 object-contain" 
                     />
                 ) : null}
             </div>

@@ -71,13 +71,21 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
         </div>
 
         {/* Tint Meter Image Section */}
-        <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-zinc-800 relative">
-            <img 
-                src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg" 
-                alt="Medidor de transmisión de luz (Tint Meter)" 
-                className="w-full h-96 md:h-[500px] object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-8">
+        <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-zinc-800 flex flex-col md:block md:relative">
+            {/* Image Container */}
+            <div className="relative h-80 md:h-[500px] w-full">
+                <img 
+                    src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg" 
+                    alt="Medidor de transmisión de luz (Tint Meter)" 
+                    className="w-full h-full object-cover object-center"
+                />
+                {/* Desktop Overlay Gradient (Hidden on Mobile) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent hidden md:block"></div>
+            </div>
+
+            {/* Text Content */}
+            {/* Mobile: Solid Dark Background. Desktop: Transparent Overlay. */}
+            <div className="bg-zinc-900 md:bg-transparent p-8 md:p-12 md:absolute md:inset-0 flex flex-col justify-center md:justify-end">
                 <div className="max-w-3xl">
                     <div className="flex items-center gap-3 mb-2 text-orange-500">
                         <ScanEye size={32} />

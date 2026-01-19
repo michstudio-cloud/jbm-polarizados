@@ -1,11 +1,14 @@
 import React from 'react';
 import { Eye, Shield, Scale, ScanEye, MoveRight } from 'lucide-react';
+import { BRANDS_FILM } from '../constants';
 
 interface TonesProps {
   onOpenModal: () => void;
 }
 
 const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
+  const xpelBrand = BRANDS_FILM.find(b => b.name === 'XPEL');
+
   const tones = [
     { pct: "05%", label: "Muy Oscuro", desc: "Máxima privacidad", opacity: "bg-opacity-95" },
     { pct: "20%", label: "Oscuro Equilibrado", desc: "Balance privacidad/visión", opacity: "bg-opacity-80" },
@@ -28,6 +31,30 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
       `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          
+          {/* XPEL Badge Moved Here */}
+          <div className="mb-8 flex flex-col items-center justify-center animate-fade-in-up w-full">
+            <span className="text-[10px] md:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
+                Calidad Internacional
+            </span>
+            <div className="inline-flex w-fit mx-auto items-center gap-2 md:gap-3 bg-gray-50 dark:bg-zinc-900 px-3 py-2 md:px-6 md:py-2 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-105 cursor-default max-w-[90vw]">
+                <span className="text-xs md:text-base font-bold text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                    Instaladores Certificados
+                </span>
+                {xpelBrand?.icon ? (
+                    <div className="h-4 md:h-7 w-auto min-w-[50px] md:min-w-[80px] text-black dark:text-white flex items-center justify-center">
+                        {xpelBrand.icon}
+                    </div>
+                ) : xpelBrand?.logo ? (
+                    <img 
+                        src={xpelBrand.logo} 
+                        alt="XPEL" 
+                        className="h-4 md:h-7 object-contain" 
+                    />
+                ) : null}
+            </div>
+          </div>
+
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
             Tonos recomendados
           </h2>

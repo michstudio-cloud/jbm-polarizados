@@ -1,5 +1,23 @@
 import React from 'react';
 import { SERVICES } from '../data/services';
+import { Facebook, Instagram } from 'lucide-react';
+
+const TikTokIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className={className}
+    >
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+);
 
 const Footer: React.FC = () => {
   return (
@@ -17,9 +35,40 @@ const Footer: React.FC = () => {
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     Expertos en control solar automotriz y arquitectónico en Reynosa. Instalación certificada de marcas líderes como XPEL y Solex.
                 </p>
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-gray-400 mb-6">
                     <p>📍 Eje San Pedro 462, Reynosa, Tamps.</p>
                     <p>📞 899 255 7561</p>
+                </div>
+
+                {/* Social Media Links */}
+                <div className="flex gap-4">
+                    <a 
+                        href="https://www.facebook.com/solarcontrol20" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="p-2 bg-zinc-900 rounded-full text-gray-400 hover:text-blue-500 hover:bg-zinc-800 transition-colors"
+                        aria-label="Síguenos en Facebook"
+                    >
+                        <Facebook size={20} />
+                    </a>
+                    <a 
+                        href="https://www.instagram.com/solarcontroljbm" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="p-2 bg-zinc-900 rounded-full text-gray-400 hover:text-pink-500 hover:bg-zinc-800 transition-colors"
+                        aria-label="Síguenos en Instagram"
+                    >
+                        <Instagram size={20} />
+                    </a>
+                    <a 
+                        href="https://www.tiktok.com/@jbm.tecnologiasolar" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="p-2 bg-zinc-900 rounded-full text-gray-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                        aria-label="Síguenos en TikTok"
+                    >
+                        <TikTokIcon size={20} />
+                    </a>
                 </div>
             </div>
             

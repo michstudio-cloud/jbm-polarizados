@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CarBrands from './components/CarBrands';
@@ -17,13 +17,21 @@ import Location from './components/Location';
 import Reviews from './components/Reviews';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import Terms from './components/Terms';
-import Warranty from './components/Warranty';
 import QuoteModal from './components/QuoteModal';
 import BusinessQuoteModal from './components/BusinessQuoteModal';
 import FinalCTA from './components/FinalCTA';
-import ServiceDetail from './components/ServiceDetail';
 import { SERVICES } from './data/services';
+
+// Lazy load heavy page components
+const Terms = lazy(() => import('./components/Terms'));
+const Warranty = lazy(() => import('./components/Warranty'));
+const ServiceDetail = lazy(() => import('./components/ServiceDetail'));
+
+const PageLoader = () => (
+  <div className="min-h-[50vh] flex items-center justify-center">
+    <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 const App: React.FC = () => {
   // Routing state
@@ -77,16 +85,26 @@ const App: React.FC = () => {
   const renderContent = () => {
     switch (currentRoute) {
         case 'terms':
-            return <Terms />;
+            return (
+                <Suspense fallback={<PageLoader />}>
+                    <Terms />
+                </Suspense>
+            );
         case 'warranty':
-            return <Warranty />;
+            return (
+                <Suspense fallback={<PageLoader />}>
+                    <Warranty />
+                </Suspense>
+            );
         case 'service':
             return serviceId && SERVICES[serviceId] ? (
-                <ServiceDetail 
-                    service={SERVICES[serviceId]} 
-                    onOpenModal={openQuoteModal} 
-                    onOpenBusinessModal={openBusinessModal}
-                />
+                <Suspense fallback={<PageLoader />}>
+                    <ServiceDetail 
+                        service={SERVICES[serviceId]} 
+                        onOpenModal={openQuoteModal} 
+                        onOpenBusinessModal={openBusinessModal}
+                    />
+                </Suspense>
             ) : (
                 <Hero onOpenModal={openQuoteModal} /> // Fallback
             );
@@ -134,6 +152,7 @@ const App: React.FC = () => {
          <button 
             onClick={openQuoteModal}
             className="flex items-center justify-center w-14 h-14 bg-green-500 rounded-full shadow-lg shadow-green-900/30 text-white hover:bg-green-600 transition-colors"
+            aria-label="Cotizar por WhatsApp"
          >
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
          </button>

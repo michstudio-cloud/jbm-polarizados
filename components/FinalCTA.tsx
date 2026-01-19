@@ -13,6 +13,8 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenModal }) => {
         <img 
           src="https://polarizados.site/wp-content/uploads/2026/01/63d6cd8e3c6309595240d4495839b42f.jpg" 
           alt="Protección profesional para tu auto" 
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
         {/* Gradient Overlay for better text readability */}

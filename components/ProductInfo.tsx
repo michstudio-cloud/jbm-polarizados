@@ -19,6 +19,8 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ onOpenModal }) => {
                   <img 
                     src="https://polarizados.site/wp-content/uploads/2026/01/2023-Tesla-Model-Y-Grey-Black-HTX-XRP.webp" 
                     alt="Tesla con polarizado de alta calidad"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                </div>

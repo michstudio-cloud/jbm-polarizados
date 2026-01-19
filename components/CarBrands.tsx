@@ -14,6 +14,7 @@ const CarBrands: React.FC = () => {
         }
         .animate-scroll {
           animation: scroll 20s linear infinite;
+          will-change: transform;
         }
       `}</style>
 

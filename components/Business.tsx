@@ -79,6 +79,8 @@ const Business: React.FC<BusinessProps> = ({ onOpenModal }) => {
                     <img 
                         src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.43-2.jpeg" 
                         alt="Edificio corporativo con polarizado" 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">

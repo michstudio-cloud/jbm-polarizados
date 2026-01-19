@@ -140,6 +140,8 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
                 <img 
                     src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.webp" 
                     alt="Medidor de transmisión de luz (Tint Meter)" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center"
                 />
                 {/* Desktop Overlay Gradient (Hidden on Mobile) */}

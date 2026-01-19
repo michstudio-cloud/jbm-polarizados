@@ -64,6 +64,17 @@ ${filmText}
 Comentarios adicionales:
 ${formData.comments || 'Ninguno'}`;
 
+    // TRACKING: Push event to GTM dataLayer
+    if (typeof window !== 'undefined') {
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        'event': 'generate_lead',
+        'lead_type': 'automotive_whatsapp',
+        'vehicle_brand': formData.brand,
+        'service_interest': formData.filmType
+      });
+    }
+
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/528992557561?text=${encodedMessage}`;
 

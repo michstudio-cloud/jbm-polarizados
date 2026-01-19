@@ -75,7 +75,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
             <img 
                 src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.51.jpg" 
                 alt="Medidor de transmisión de luz (Tint Meter)" 
-                className="w-full h-64 md:h-[500px] object-cover object-center"
+                className="w-full h-96 md:h-[500px] object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-8">
                 <div className="max-w-3xl">

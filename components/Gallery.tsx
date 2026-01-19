@@ -9,7 +9,13 @@ const Gallery: React.FC = () => {
     "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.44-1.jpg", // Trabajo en SUV
     "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53.jpeg", // Polarizado inteligente
     "https://polarizados.site/wp-content/uploads/2026/01/615810071_1494866745974249_1659294192991222039_n.jpg", // Camioneta caja
-    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.49-2.jpg" // Proceso de instalación
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.49-2.jpg", // Proceso de instalación
+    "https://polarizados.site/wp-content/uploads/2026/01/548976118_1388175596643365_3323515692048945738_n-2.jpg",
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.44-3.jpeg",
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.45.jpg",
+    "https://polarizados.site/wp-content/uploads/2026/01/616243611_1494867429307514_6569322724305256898_n.jpg",
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.52.jpg",
+    "https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.06.42-1.jpeg"
   ];
 
   return (

@@ -26,7 +26,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenModal }) => {
             Inversión Segura
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight leading-tight">
+        <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
           ¿Listo para proteger tu inversión?
         </h2>
         <p className="text-xl text-orange-500 mb-8 tracking-wide">

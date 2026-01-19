@@ -1,6 +1,6 @@
 import React from 'react';
 import { BRANDS_FILM } from '../constants';
-import { CheckCircle2, Layers } from 'lucide-react';
+import { CheckCircle2, Layers, ArrowRight } from 'lucide-react';
 
 interface BrandsProps {
   onOpenModal: () => void;
@@ -8,12 +8,12 @@ interface BrandsProps {
 
 const Brands: React.FC<BrandsProps> = ({ onOpenModal }) => {
   const materials = [
-    "Polarizados Antirrayas",
-    "Polarizados Nanocerámicos",
-    "Polarizados Inteligentes",
-    "Polarizados Reflecta (Plata y otros)",
-    "Películas de Seguridad",
-    "Película de Seguridad Cerámica"
+    { label: "Polarizados Antirrayas", id: "antirrayas" },
+    { label: "Polarizados Nanocerámicos", id: "nanoceramico" },
+    { label: "Polarizados Inteligentes", id: "inteligente" },
+    { label: "Polarizados Reflecta (Plata y otros)", id: "reflecta" },
+    { label: "Películas de Seguridad", id: "seguridad" },
+    { label: "Película de Seguridad Cerámica", id: "seguridad-ceramica" }
   ];
 
   return (
@@ -64,7 +64,7 @@ const Brands: React.FC<BrandsProps> = ({ onOpenModal }) => {
                         Variedad para cada necesidad
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        No importa si buscas privacidad, reducción de calor extremo o seguridad. Tenemos el material específico para tu auto o proyecto.
+                        No importa si buscas privacidad, reducción de calor extremo o seguridad. Tenemos el material específico para tu auto o proyecto. Haz clic en cada opción para ver detalles.
                     </p>
                     <button 
                         onClick={onOpenModal}
@@ -77,10 +77,19 @@ const Brands: React.FC<BrandsProps> = ({ onOpenModal }) => {
                 <div className="flex-1 w-full">
                     <div className="grid sm:grid-cols-2 gap-3">
                         {materials.map((item, idx) => (
-                            <div key={idx} className="flex items-center gap-3 p-4 bg-white dark:bg-zinc-950 rounded-xl border border-gray-200 dark:border-zinc-800 shadow-sm hover:border-orange-300 dark:hover:border-orange-900 transition-colors">
-                                <CheckCircle2 className="text-orange-500 flex-shrink-0" size={20} />
-                                <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">{item}</span>
-                            </div>
+                            <a 
+                                key={idx} 
+                                href={`#/servicios/${item.id}`}
+                                className="group flex items-center justify-between p-4 bg-white dark:bg-zinc-950 rounded-xl border border-gray-200 dark:border-zinc-800 shadow-sm hover:border-orange-300 dark:hover:border-orange-900 hover:shadow-md transition-all cursor-pointer"
+                            >
+                                <div className="flex items-center gap-3">
+                                    <CheckCircle2 className="text-orange-500 flex-shrink-0 group-hover:scale-110 transition-transform" size={20} />
+                                    <span className="font-bold text-gray-800 dark:text-gray-200 text-sm group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                                        {item.label}
+                                    </span>
+                                </div>
+                                <ArrowRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-orange-500 transition-colors opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transform duration-300" />
+                            </a>
                         ))}
                     </div>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center md:text-left italic">

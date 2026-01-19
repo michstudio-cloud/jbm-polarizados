@@ -7,7 +7,7 @@ interface LocationProps {
 
 const Location: React.FC<LocationProps> = ({ onOpenModal }) => {
   return (
-    <section id="ubicacion" className="py-20 bg-white dark:bg-zinc-900 transition-colors duration-300">
+    <section id="ubicacion" className="py-20 bg-white dark:bg-black transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -41,7 +41,7 @@ const Location: React.FC<LocationProps> = ({ onOpenModal }) => {
             </div>
           </div>
 
-          <div className="h-96 bg-gray-100 dark:bg-zinc-800 rounded-2xl overflow-hidden relative border border-gray-200 dark:border-zinc-700 shadow-xl">
+          <div className="h-96 bg-gray-100 dark:bg-zinc-800 rounded-2xl overflow-hidden relative border border-gray-200 dark:border-zinc-800 shadow-xl">
              <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.134894454796!2d-98.32365152457562!3d26.04081049701564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866505c3cab58f13%3A0xcb202a18f3def61d!2sJBM%20TECNOLOG%C3%8DA%20SOLAR!5e1!3m2!1sen!2sus!4v1768802728730!5m2!1sen!2sus" 
                 width="100%" 

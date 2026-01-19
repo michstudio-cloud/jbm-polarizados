@@ -6,7 +6,7 @@ const CarBrands: React.FC = () => {
   const tickerBrands = [...BRANDS_AUTO, ...BRANDS_AUTO];
 
   return (
-    <div className="bg-white dark:bg-zinc-950 border-b border-gray-100 dark:border-zinc-900 relative z-20 overflow-hidden">
+    <div className="bg-white dark:bg-zinc-950 border-b border-gray-100 dark:border-zinc-900 relative z-20">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -25,19 +25,19 @@ const CarBrands: React.FC = () => {
         </p>
 
         {/* MOBILE: Infinite Ticker */}
-        <div className="md:hidden relative w-full">
+        <div className="md:hidden relative w-full overflow-hidden">
             {/* Left Fade */}
-            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent z-10 pointer-events-none"></div>
             
             {/* Right Fade */}
-            <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent z-10 pointer-events-none"></div>
 
             {/* Scrolling Track */}
             <div className="flex w-max animate-scroll">
                 {tickerBrands.map((brand, idx) => (
-                    <div key={`${brand.name}-${idx}`} className="w-[45vw] flex items-center justify-center px-0 grayscale opacity-80">
+                    <div key={`${brand.name}-${idx}`} className="w-36 flex-shrink-0 flex items-center justify-center grayscale opacity-80">
                         {brand.icon ? (
-                             <div className="transform scale-125 text-gray-700 dark:text-gray-300">
+                             <div className="w-full flex justify-center items-center transform scale-110 text-gray-700 dark:text-gray-300">
                                 {brand.icon}
                              </div>
                         ) : (

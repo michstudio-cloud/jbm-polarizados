@@ -55,13 +55,17 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 <span className="text-sm md:text-base font-bold text-gray-900 dark:text-gray-100">
                     Instaladores Certificados
                 </span>
-                {xpelBrand?.logo && (
+                {xpelBrand?.icon ? (
+                    <div className="h-5 md:h-7 w-auto text-black dark:text-white">
+                        {xpelBrand.icon}
+                    </div>
+                ) : xpelBrand?.logo ? (
                     <img 
                         src={xpelBrand.logo} 
                         alt="XPEL" 
                         className="h-5 md:h-7 object-contain" 
                     />
-                )}
+                ) : null}
             </div>
         </div>
 

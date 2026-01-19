@@ -63,10 +63,10 @@ const App: React.FC = () => {
             <TikTokVideos />
             <ProductInfo onOpenModal={openQuoteModal} /> 
             <Tones onOpenModal={openQuoteModal} />
-            <SecurityFilms onOpenModal={openQuoteModal} />
             <Gallery />
-            <LegalityWarranty onOpenModal={openQuoteModal} />
             <Process onOpenModal={openQuoteModal} />
+            <SecurityFilms onOpenModal={openQuoteModal} />
+            <LegalityWarranty onOpenModal={openQuoteModal} />
             <Pricing onOpenModal={openQuoteModal} />
             <Brands onOpenModal={openQuoteModal} />
             <Business onOpenModal={openBusinessModal} />

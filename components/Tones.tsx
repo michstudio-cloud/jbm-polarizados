@@ -105,15 +105,15 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                         <div className="p-2 bg-white dark:bg-zinc-800 rounded-full text-orange-500"><Scale size={18} /></div>
-                        <span>Reglamentos</span>
+                        <span>100% en Regla</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                         <div className="p-2 bg-white dark:bg-zinc-800 rounded-full text-orange-500"><Eye size={18} /></div>
-                        <span>Visibilidad</span>
+                        <span>Visibilidad a tu gusto</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                         <div className="p-2 bg-white dark:bg-zinc-800 rounded-full text-orange-500"><Shield size={18} /></div>
-                        <span>Seguridad</span>
+                        <span>Inversión Segura</span>
                     </div>
                 </div>
             </div>

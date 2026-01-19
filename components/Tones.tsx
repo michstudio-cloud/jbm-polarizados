@@ -68,7 +68,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
         </div>
 
         <div className="bg-orange-50 dark:bg-orange-900/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
-            <div className="flex-1">
+            <div className="flex-1 w-full">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                     Consideramos todo para tu recomendación
                 </h3>
@@ -89,7 +89,7 @@ const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
             </div>
             <button 
                 onClick={onOpenModal}
-                className="bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap"
+                className="w-full md:w-auto bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap"
             >
                 Recibir recomendación
             </button>

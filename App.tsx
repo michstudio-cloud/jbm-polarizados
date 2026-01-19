@@ -76,7 +76,11 @@ const App: React.FC = () => {
             return <Terms />;
         case 'service':
             return serviceId && SERVICES[serviceId] ? (
-                <ServiceDetail service={SERVICES[serviceId]} onOpenModal={openQuoteModal} />
+                <ServiceDetail 
+                    service={SERVICES[serviceId]} 
+                    onOpenModal={openQuoteModal} 
+                    onOpenBusinessModal={openBusinessModal}
+                />
             ) : (
                 <Hero onOpenModal={openQuoteModal} /> // Fallback
             );

@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { CheckCircle2, ChevronRight, Star } from 'lucide-react';
+import { CheckCircle2, ChevronRight, Star, Building2 } from 'lucide-react';
 import { ServiceData } from '../data/services';
 
 interface ServiceDetailProps {
   service: ServiceData;
   onOpenModal: () => void;
+  onOpenBusinessModal: () => void;
 }
 
-const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onOpenModal }) => {
+const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onOpenModal, onOpenBusinessModal }) => {
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -127,13 +128,24 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onOpenModal }) =
                         <p className="text-gray-400 dark:text-gray-600 text-sm mb-6">
                             Cotiza la instalación profesional para tu auto o proyecto arquitectónico.
                         </p>
-                        <button 
-                            onClick={onOpenModal}
-                            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold py-4 rounded-xl transition-transform active:scale-95 shadow-lg shadow-orange-900/50"
-                        >
-                            Solicitar Cotización
-                            <ChevronRight size={20} />
-                        </button>
+                        
+                        <div className="space-y-3">
+                            <button 
+                                onClick={onOpenModal}
+                                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold py-4 rounded-xl transition-transform active:scale-95 shadow-lg shadow-orange-900/50"
+                            >
+                                Solicitar Cotización
+                                <ChevronRight size={20} />
+                            </button>
+
+                            <button 
+                                onClick={onOpenBusinessModal}
+                                className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-zinc-700 dark:border-gray-200 text-white dark:text-zinc-900 hover:bg-white/10 dark:hover:bg-zinc-100 font-bold py-3 rounded-xl transition-colors text-sm"
+                            >
+                                <Building2 size={18} />
+                                Proyecto Arquitectónico
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

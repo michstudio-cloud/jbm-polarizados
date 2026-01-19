@@ -1,8 +1,11 @@
 import React from 'react';
 import { BadgeCheck, ScrollText, AlertTriangle } from 'lucide-react';
-import { WHATSAPP_LINK } from '../constants';
 
-const LegalityWarranty: React.FC = () => {
+interface LegalityWarrantyProps {
+  onOpenModal: () => void;
+}
+
+const LegalityWarranty: React.FC<LegalityWarrantyProps> = ({ onOpenModal }) => {
   return (
     <section className="py-20 bg-gray-50 dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,9 +67,9 @@ const LegalityWarranty: React.FC = () => {
                      </div>
                 </div>
                 <div className="mt-6 relative z-10">
-                    <a href={WHATSAPP_LINK} className="text-sm font-bold text-gray-900 dark:text-white border-b-2 border-orange-500 hover:text-orange-600 transition-colors">
+                    <button onClick={onOpenModal} className="text-sm font-bold text-gray-900 dark:text-white border-b-2 border-orange-500 hover:text-orange-600 transition-colors">
                         Instalar con respaldo legal
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

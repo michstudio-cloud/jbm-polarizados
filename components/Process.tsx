@@ -1,8 +1,11 @@
 import React from 'react';
 import { MessageCircle, Search, ThumbsUp, CalendarClock, Hammer } from 'lucide-react';
-import { WHATSAPP_LINK } from '../constants';
 
-const Process: React.FC = () => {
+interface ProcessProps {
+  onOpenModal: () => void;
+}
+
+const Process: React.FC<ProcessProps> = ({ onOpenModal }) => {
   const steps = [
     { icon: MessageCircle, title: "1. Escribes", desc: "Nos contactas por WhatsApp." },
     { icon: Search, title: "2. Revisamos", desc: "Analizamos tu vehículo y uso." },
@@ -52,14 +55,12 @@ const Process: React.FC = () => {
         </div>
 
         <div className="mt-12 text-center">
-             <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+             <button
+                onClick={onOpenModal}
                 className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
             >
                 Agendar ahora
-            </a>
+            </button>
         </div>
       </div>
     </section>

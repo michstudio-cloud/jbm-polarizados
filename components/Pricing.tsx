@@ -1,8 +1,12 @@
 import React from 'react';
-import { PRICING_PLANS, WHATSAPP_LINK } from '../constants';
+import { PRICING_PLANS } from '../constants';
 import { Check } from 'lucide-react';
 
-const Pricing: React.FC = () => {
+interface PricingProps {
+  onOpenModal: () => void;
+}
+
+const Pricing: React.FC<PricingProps> = ({ onOpenModal }) => {
   return (
     <section id="precios" className="py-24 bg-white dark:bg-zinc-950 relative overflow-hidden">
       {/* Decorative gradient blob */}
@@ -55,10 +59,8 @@ const Pricing: React.FC = () => {
                 ))}
               </ul>
 
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={onOpenModal}
                 className={`block w-full text-center py-3 rounded-xl font-bold transition-colors ${
                     plan.isPremium
                     ? 'bg-white text-zinc-900 hover:bg-gray-100'
@@ -66,7 +68,7 @@ const Pricing: React.FC = () => {
                 }`}
               >
                 Cotizar este
-              </a>
+              </button>
             </div>
           ))}
         </div>
@@ -77,9 +79,9 @@ const Pricing: React.FC = () => {
                 El costo puede variar según si es sedán, SUV o camioneta, y la marca del material (Solex, XPEL, 3M). 
                 También contamos con polarizado para <span className="text-orange-600 font-bold">Panorámico Doble desde $850 MXN</span>.
             </p>
-            <a href={WHATSAPP_LINK} className="text-orange-600 font-bold hover:underline">
+            <button onClick={onOpenModal} className="text-orange-600 font-bold hover:underline">
                 Enviar datos de mi auto para cotización exacta
-            </a>
+            </button>
         </div>
       </div>
     </section>

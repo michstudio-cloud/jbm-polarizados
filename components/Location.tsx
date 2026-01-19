@@ -1,8 +1,11 @@
 import React from 'react';
 import { MapPin, Clock } from 'lucide-react';
-import { WHATSAPP_LINK } from '../constants';
 
-const Location: React.FC = () => {
+interface LocationProps {
+  onOpenModal: () => void;
+}
+
+const Location: React.FC<LocationProps> = ({ onOpenModal }) => {
   return (
     <section id="ubicacion" className="py-20 bg-zinc-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,14 +43,12 @@ const Location: React.FC = () => {
             <div className="mt-10">
                 <h3 className="text-2xl font-bold mb-4">¿Listo para proteger tu inversión?</h3>
                 <p className="text-gray-400 mb-6">Reduce el calor, cuida el interior de tu vehículo y maneja con mayor confort todos los días.</p>
-                <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
+                    onClick={onOpenModal}
                     className="inline-block bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-orange-900/50 transition-all"
                 >
                     Agendar cita por WhatsApp
-                </a>
+                </button>
             </div>
           </div>
 

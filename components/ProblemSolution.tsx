@@ -1,9 +1,12 @@
 import React from 'react';
 import { FEATURES_PROBLEM } from '../constants';
-import { WHATSAPP_LINK } from '../constants';
 import { ShieldAlert, Flame } from 'lucide-react';
 
-const ProblemSolution: React.FC = () => {
+interface ProblemSolutionProps {
+  onOpenModal: () => void;
+}
+
+const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenModal }) => {
   return (
     <section id="problema" className="py-20 bg-white dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,14 +50,12 @@ const ProblemSolution: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <a
-             href={WHATSAPP_LINK}
-             target="_blank"
-             rel="noopener noreferrer"
+          <button
+             onClick={onOpenModal}
              className="inline-block bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold py-3 px-8 rounded-full hover:bg-zinc-800 dark:hover:bg-gray-200 transition-colors"
           >
             Proteger mi auto
-          </a>
+          </button>
         </div>
       </div>
     </section>

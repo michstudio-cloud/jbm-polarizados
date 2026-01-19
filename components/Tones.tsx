@@ -1,8 +1,11 @@
 import React from 'react';
 import { Eye, Shield, Scale } from 'lucide-react';
-import { WHATSAPP_LINK } from '../constants';
 
-const Tones: React.FC = () => {
+interface TonesProps {
+  onOpenModal: () => void;
+}
+
+const Tones: React.FC<TonesProps> = ({ onOpenModal }) => {
   const tones = [
     { pct: "05%", label: "Muy Oscuro", desc: "Máxima privacidad", opacity: "bg-opacity-95" },
     { pct: "20%", label: "Oscuro Equilibrado", desc: "Balance privacidad/visión", opacity: "bg-opacity-80" },
@@ -59,12 +62,12 @@ const Tones: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <a 
-                href={WHATSAPP_LINK}
+            <button 
+                onClick={onOpenModal}
                 className="bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap"
             >
                 Recibir recomendación
-            </a>
+            </button>
         </div>
       </div>
     </section>

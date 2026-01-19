@@ -1,8 +1,12 @@
 import React from 'react';
-import { FEATURES_PRODUCT, WHATSAPP_LINK } from '../constants';
+import { FEATURES_PRODUCT } from '../constants';
 import { Check, Layers } from 'lucide-react';
 
-const ProductInfo: React.FC = () => {
+interface ProductInfoProps {
+  onOpenModal: () => void;
+}
+
+const ProductInfo: React.FC<ProductInfoProps> = ({ onOpenModal }) => {
   return (
     <section id="producto" className="py-20 bg-gray-50 dark:bg-zinc-900 border-y border-gray-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,14 +72,12 @@ const ProductInfo: React.FC = () => {
               ))}
             </ul>
 
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={onOpenModal}
               className="text-orange-600 dark:text-orange-500 font-bold hover:underline flex items-center gap-2"
             >
               Ver opciones y cotizar <span aria-hidden="true">→</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

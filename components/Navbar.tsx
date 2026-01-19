@@ -3,7 +3,11 @@ import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { WHATSAPP_LINK } from '../constants';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenModal: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -62,14 +66,12 @@ const Navbar: React.FC = () => {
 
           <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={onOpenModal}
               className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-transform transform hover:scale-105"
             >
               Agendar Cita
-            </a>
+            </button>
           </div>
 
           <div className="-mr-2 flex lg:hidden gap-4 items-center">
@@ -99,14 +101,15 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenModal();
+              }}
               className="block w-full text-center mt-4 bg-orange-600 text-white px-4 py-3 rounded-lg font-bold"
             >
               Agendar Cita
-            </a>
+            </button>
           </div>
         </div>
       )}

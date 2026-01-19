@@ -1,7 +1,11 @@
 import React from 'react';
-import { BRANDS_AUTO, BRANDS_FILM, WHATSAPP_LINK } from '../constants';
+import { BRANDS_AUTO, BRANDS_FILM } from '../constants';
 
-const Brands: React.FC = () => {
+interface BrandsProps {
+  onOpenModal: () => void;
+}
+
+const Brands: React.FC<BrandsProps> = ({ onOpenModal }) => {
   return (
     <section className="py-20 bg-white dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,9 +58,9 @@ const Brands: React.FC = () => {
                 * Los precios publicados corresponden principalmente a líneas base como Solex. XPEL y 3M son productos premium con costo variable.
             </p>
             
-            <a href={WHATSAPP_LINK} className="text-orange-600 font-bold hover:underline">
+            <button onClick={onOpenModal} className="text-orange-600 font-bold hover:underline">
                 Cotizar material premium →
-            </a>
+            </button>
         </div>
 
       </div>

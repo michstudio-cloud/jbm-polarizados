@@ -1,8 +1,11 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { WHATSAPP_LINK } from '../constants';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenModal: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
     <div className="relative pt-16 pb-12 sm:pt-24 lg:pb-32 overflow-hidden">
       {/* Background Image */}
@@ -31,15 +34,13 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4">
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={onOpenModal}
             className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-orange-500/30 transition-all transform hover:-translate-y-1"
           >
             Agendar Cita
             <ArrowRight size={20} />
-          </a>
+          </button>
         </div>
 
         <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-400 w-full">

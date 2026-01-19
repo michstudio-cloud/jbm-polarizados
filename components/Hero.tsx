@@ -11,7 +11,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53-1.jpeg" 
+          src="https://polarizados.site/wp-content/uploads/2026/01/WhatsApp-Image-2025-11-11-at-13.12.53-1.webp" 
           alt="JBM Tecnología Solar - Polarizado Reynosa" 
           className="w-full h-full object-cover opacity-20 dark:opacity-20"
         />

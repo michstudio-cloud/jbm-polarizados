@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
-          Olvídate del calor <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Polarizado Legal</span> en Reynosa.
+          Olvídate del calor, <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Polarizado Legal</span> en Reynosa.
         </h1>
 
         <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">

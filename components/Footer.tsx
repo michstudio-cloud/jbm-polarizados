@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white py-16 border-t border-zinc-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-12">
             
             {/* Brand Column */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -97,20 +97,6 @@ const Footer: React.FC = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
-
-            {/* Legal / Trust */}
-            <div className="text-center md:text-left">
-                 <h4 className="font-bold text-white text-lg mb-6">Calidad Garantizada</h4>
-                 <p className="text-gray-500 text-sm mb-4">
-                    Todos nuestros servicios cuentan con garantía por escrito en instalación y material.
-                 </p>
-                 <div className="flex gap-4 justify-center md:justify-start grayscale opacity-50">
-                    {/* Placeholder for small brand logos/certifications */}
-                    <div className="w-12 h-8 bg-zinc-800 rounded"></div>
-                    <div className="w-12 h-8 bg-zinc-800 rounded"></div>
-                    <div className="w-12 h-8 bg-zinc-800 rounded"></div>
-                 </div>
             </div>
         </div>
         

@@ -28,8 +28,6 @@ const Process: React.FC<ProcessProps> = ({ onOpenModal }) => {
 
         <div className="relative">
              {/* Connector Line (Desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 dark:bg-zinc-800 -translate-y-1/2 z-0"></div>
-
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 relative z-10">
                 {steps.map((step, idx) => {
                     const isLast = idx === steps.length - 1;

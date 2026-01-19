@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Facebook, ExternalLink } from 'lucide-react';
+import { Camera, Facebook, ExternalLink, MoveRight } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   // Updated with new image list provided
@@ -14,8 +14,17 @@ const Gallery: React.FC = () => {
 
   return (
     <section id="galeria" className="py-20 bg-gray-50 dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800">
+        <style>{`
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-12">
                 <div className="flex items-center justify-center gap-2 mb-4 text-orange-600">
                     <Camera size={24} />
                     <span className="font-bold uppercase tracking-wider text-sm">Nuestros Trabajos</span>
@@ -28,14 +37,28 @@ const Gallery: React.FC = () => {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {/* Mobile Swipe Hint */}
+            <div className="md:hidden flex items-center justify-end gap-2 mb-4 text-xs text-gray-400 animate-pulse px-2">
+                <span>Desliza</span>
+                <MoveRight size={16} />
+            </div>
+
+            {/* Gallery Container - Slideshow on Mobile / Grid on Desktop */}
+            <div className="
+                flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scrollbar-hide
+                md:grid md:grid-cols-3 md:gap-6 md:pb-0 md:overflow-visible
+            ">
                 {images.map((src, idx) => (
                     <a 
                         key={idx} 
                         href="https://www.facebook.com/solarcontrol20/photos"
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 block"
+                        className="
+                            flex-shrink-0 w-[85vw] snap-center
+                            md:w-auto md:flex-shrink-1
+                            group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 block
+                        "
                     >
                         <img 
                             src={src} 
@@ -52,7 +75,7 @@ const Gallery: React.FC = () => {
                 ))}
             </div>
             
-            <div className="mt-12 flex justify-center">
+            <div className="mt-8 md:mt-12 flex justify-center">
                 <a 
                     href="https://www.facebook.com/solarcontrol20/photos" 
                     target="_blank"

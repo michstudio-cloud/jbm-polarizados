@@ -25,15 +25,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-xs font-bold tracking-wide uppercase mb-6 border border-orange-200 dark:border-orange-800/50">
           <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-          Diseñado para el calor de Reynosa
+          Especialistas en control solar
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
-          Polarizado <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Profesional</span> y Legal
+          Olvídate del calor <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Polarizado Legal</span> en Reynosa.
         </h1>
 
         <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-          Instala polarizado recomendado por expertos locales para reducir el calor y proteger tu inversión desde el primer día.
+          Reduce hasta 60% el calor interior, protege tu vehículo, protege tu inversión y circula 100% legal en Reynosa desde el primer día.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 mb-8">
@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             onClick={onOpenModal}
             className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-orange-500/30 transition-all transform hover:-translate-y-1"
           >
-            Agendar Cita
+            Cotizar mi polarizado
             <ArrowRight size={20} />
           </button>
         </div>
@@ -71,10 +71,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
         <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-400 w-full">
           {[
-            "Menor entrada de calor",
-            "Polarizado Inteligente",
-            "Instalación Profesional",
-            "Garantía por escrito"
+            "Interior 15 °C más fresco",
+            "Visibilidad clara día y noche",
+            "Instalación, sin burbujas",
+            "Garantía real por escrito"
           ].map((item, index) => (
             <div key={index} className="flex flex-col sm:flex-row items-center justify-center gap-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm px-2 sm:px-4 py-3 sm:py-2 rounded-lg border border-gray-200 dark:border-zinc-800 text-center sm:text-left">
               <CheckCircle2 className="text-orange-500 flex-shrink-0" size={18} />
@@ -82,6 +82,11 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             </div>
           ))}
         </div>
+
+        <p className="mt-6 text-xs text-gray-500 dark:text-gray-400 font-medium opacity-80 animate-pulse">
+            El calor daña interiores, pantallas y comodidad. Cada día sin polarizado te cuesta más.
+        </p>
+
       </div>
     </div>
   );

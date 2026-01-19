@@ -1,5 +1,5 @@
 import React from 'react';
-import { BRANDS_AUTO, BRANDS_FILM } from '../constants';
+import { BRANDS_FILM } from '../constants';
 
 interface BrandsProps {
   onOpenModal: () => void;
@@ -10,29 +10,8 @@ const Brands: React.FC<BrandsProps> = ({ onOpenModal }) => {
     <section className="py-20 bg-white dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Authority Section */}
-        <div className="mb-20">
-            <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
-                Confianza respaldada por agencias y empresas
-            </h2>
-            <div className="flex flex-wrap justify-center gap-6 md:gap-12 opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500">
-                {BRANDS_AUTO.map((brand, idx) => (
-                    <div key={idx} className="flex items-center justify-center px-6 py-4 border border-gray-100 dark:border-zinc-800 rounded-xl bg-gray-50 dark:bg-zinc-900 min-w-[120px]">
-                        {brand.icon ? (
-                            brand.icon
-                        ) : (
-                            <span className="text-xl font-bold text-gray-700 dark:text-gray-300">{brand.name}</span>
-                        )}
-                    </div>
-                ))}
-            </div>
-             <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6 max-w-2xl mx-auto">
-                Colaboramos con agencias automotrices que exigen calidad y consistencia. Ese mismo estándar se aplica en tu vehículo.
-            </p>
-        </div>
-
-        {/* Materials Section */}
-        <div className="border-t border-gray-100 dark:border-zinc-800 pt-16 text-center">
+        {/* Materials Section Only */}
+        <div className="text-center">
              <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4">
                 Mejores marcas de material
             </h3>

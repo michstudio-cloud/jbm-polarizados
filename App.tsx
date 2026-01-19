@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CarBrands from './components/CarBrands';
 import ProblemSolution from './components/ProblemSolution';
 import ProductInfo from './components/ProductInfo';
 import Tones from './components/Tones';
@@ -53,6 +54,7 @@ const App: React.FC = () => {
         ) : (
           <>
             <Hero onOpenModal={openQuoteModal} />
+            <CarBrands />
             <ProblemSolution onOpenModal={openQuoteModal} />
             <ProductInfo onOpenModal={openQuoteModal} />
             <TikTokVideos />

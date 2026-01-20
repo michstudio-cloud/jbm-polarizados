@@ -58,9 +58,7 @@ const Process: React.FC<ProcessProps> = ({ onOpenModal }) => {
         </div>
 
         <div className="relative">
-             {/* Timeline Connector Line (Desktop Only) */}
-             <div className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-0.5 bg-gray-200 dark:bg-zinc-800 z-0"></div>
-
+             
              {/* Mobile Swipe Hint */}
              <div className="md:hidden flex items-center justify-end gap-2 mb-4 text-xs text-gray-400 animate-pulse px-2">
                 <span>Desliza</span>

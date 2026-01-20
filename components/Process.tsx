@@ -69,8 +69,8 @@ const Process: React.FC<ProcessProps> = ({ onOpenModal }) => {
 
              {/* Steps Grid / Scroll Container */}
             <div className="
-                flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide
-                md:grid md:grid-cols-5 md:gap-6 md:pb-0 md:mx-0 md:px-0 md:overflow-visible
+                flex overflow-x-auto gap-4 pt-6 pb-8 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide
+                md:grid md:grid-cols-5 md:gap-6 md:py-0 md:mx-0 md:px-0 md:overflow-visible
                 relative z-10
             ">
                 {steps.map((step, idx) => {
@@ -90,7 +90,7 @@ const Process: React.FC<ProcessProps> = ({ onOpenModal }) => {
                         >
                             {/* Hand Hint for First Step */}
                             {isFirst && (
-                                <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md animate-bounce">
+                                <div className="absolute -top-4 -right-2 z-30 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-bounce whitespace-nowrap border-2 border-white dark:border-zinc-900">
                                     ¡Clic aquí!
                                 </div>
                             )}
